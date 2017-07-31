@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class mutable="true" name="com.agit.brooks2.masterdata.domain.information.Informations" table="AGIT_INFORMATIONS">
+        <id column="id" name="id">
+            <generator class="org.hibernate.id.IdentityGenerator"/>
+        </id>
+        <property column="idNews" name="idNews" not-null="false"/>
+        <property column="tittleNews" name="tittleNews" not-null="false"/>
+        <property column="descriptionNews" name="descriptionNews" not-null="false"/>
+        <property column="statusProject" name="statusProject" not-null="true" update="true">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.agit.brooks2.shared.status.Status</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+        <property column="photoInformation" name="photoInformation" not-null="false"/>
+        <property column="urlPhotoInformation" name="urlPhotoInformation" not-null="false"/>
+        <property column="status" name="status" not-null="true" update="true">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.agit.brooks2.shared.status.Status</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+        <property column="createdBy" name="createdBy" not-null="false"/>
+        <property column="createdDate" name="createdDate" not-null="false"/>
+        <property column="modifiedBy" name="modifiedBy" not-null="false"/>
+        <property column="modifiedDate" name="modifiedDate" not-null="false"/>
+    </class>
+</hibernate-mapping>

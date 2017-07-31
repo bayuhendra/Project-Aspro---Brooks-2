@@ -5,6 +5,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
     
     <!--setting service apllication-->
-   
+    <bean id="projectDTOAssembler" class="com.agit.brooks2.masterdata.interfaces.web.facade.dto.assembler.ProjectDTOAssembler"></bean>
+    <bean id="projectService" class="com.agit.brooks2.masterdata.application.impl.ProjectServiceImpl">
+        <property name="projectRepository" ref="projectRepository"/>
+        <property name="projectDTOAssembler" ref="projectDTOAssembler"/>
+    </bean>
+    
+    <bean id="informationsDTOAssembler" class="com.agit.brooks2.masterdata.interfaces.web.facade.dto.assembler.InformationsDTOAssembler"></bean>
+    <bean id="informationsService" class="com.agit.brooks2.masterdata.application.impl.InformationsServiceImpl">
+        <property name="informationsRepository" ref="informationsRepository"/>
+        <property name="informationsDTOAssembler" ref="informationsDTOAssembler"/>
+    </bean>	
    
 </beans>

@@ -10,8 +10,12 @@
         http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd">
 
     <!--Setting Repository-->
+    <bean id="projectRepository" class="com.agit.brooks2.masterdata.domain.infrastructure.persistance.hibernate.ProjectHibernateRepository">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>  
     
-    
-  
+    <bean id="informationsRepository" class="com.agit.brooks2.masterdata.domain.infrastructure.persistance.hibernate.InformationsHibernateRepository">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>  
     
 </beans>
