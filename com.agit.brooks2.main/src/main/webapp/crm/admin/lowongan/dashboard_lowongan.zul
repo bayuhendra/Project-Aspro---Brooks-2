@@ -1,0 +1,74 @@
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window border="30" apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.agit.crm.main.viewmodel.admin.LowonganVM')"
+            form="@id('fx') @load(vm.lowonganDTO) @save(vm.lowonganDTO, before='buttonSaveLowongan')">
+        <groupbox height="610px" closable="false" mold="3d" style="background:#f5f5f5" sclass="col-md-12 nopadding" >
+            <caption label="Dashboard Lowongan" sclass="isi" />
+            <div sclass="col-md-3 nopadding">
+                <div class="form-group" style="font-style:bold;">
+                    <label sclass="isi" value="ID Lowongan" />
+                    <textbox class="form-control" width="100%" value="@bind(vm.idLowongan)"/>
+                </div>
+<!--                <div class="form-group" style="font-style:bold;">
+                    <label sclass="isi" value="Tanggal Berakhir" />
+                    <datebox width="100%" value="@bind(vm.tanggalBerakhir)"/>  
+                </div>-->
+                <div class="form-group" style="font-style:bold;">
+                    <label sclass="isi" value="Nama Lowongan" />
+                    <textbox class="form-control" width="100%" value="@bind(vm.namaLowongan)"/>  
+                </div>
+                <div class="form-group" style="font-style:bold;">
+                    <label sclass="isi" value="Kategori Pekerjaan" />
+                    <listbox mold="select" sclass="form-control" model="@load(vm.listNamaMinat)" selectedItem="@bind(vm.minatPekerjaan)" >
+                        <template name="model" var="items" >
+                            <listitem label="@load(items)"  value="@load(items)" />
+                        </template>
+                    </listbox>
+                </div>
+                <div>
+                    <a sclass="btn btn-info" width="100%" label="Pencarian" onClick="@command('searchLowongan')"/>
+                    <separator/>
+                    <a sclass="btn btn-info" width="100%" label="Tambah Lowongan" onClick="@command('buttonKlikCreateLowongan')"/>
+                </div>   
+            </div>
+            <div sclass="col-md-9 nopadding">
+                <groupbox closable="false" class="col-md-12">
+                    <paging forward="onPaging" />
+                    <listbox rows="7" pageSize="@load(vm.pageSizeCreateLowongan)" mold="paging" emptyMessage="${labels.common.noDataFound}" model="@bind(vm.lowonganDTOs)">
+                        <listhead>
+                            <listheader label="ID" width="5%" align="center" sortDirection="ascending" sort="auto(idLowongan)"/>
+                            <listheader label="Nama Lowongan" width="20%" align="center"/>
+                            <listheader label="Mulai" width="12%" align="center"/>
+                            <listheader label="Berakhir" width="12%" align="center"/>
+                            <listheader label="Kategori Kerja" width="14%" align="center"/>
+                            <listheader label="Aksi" width="21%" align="center"/>
+                        </listhead>
+                        <template name="model">
+                            <listitem value="${each}">
+                                <listcell>
+                                    <label width="100%" value="@bind(each.idLowongan)"/>
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" value="@bind(each.namaLowongan)"/>
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" value="@bind(each.tanggalMulai)"/>
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" value="@bind(each.tanggalBerakhir)"/>
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" value="@bind(each.minatPekerjaan)"/>
+                                </listcell>
+                                <listcell>
+                                    <a sclass="btn btn-primary " label="Detail" onClick="@command('buttonDetailLowongan', object=each)"></a>
+                                    <a sclass="btn btn-primary " label="Hapus" onClick="@command('deleteLowongan', object=each)"></a>
+                                </listcell>
+                            </listitem>
+                        </template>
+                    </listbox>
+                </groupbox>
+            </div>
+        </groupbox>
+    </window>
+</zk>

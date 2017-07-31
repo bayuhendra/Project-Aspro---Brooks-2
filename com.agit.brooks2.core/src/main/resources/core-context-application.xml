@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    
+    
+    <bean id="lowonganDTOAssembler" class="com.agit.brooks2.interfaces.web.facade.dto.assembler.crm.LowonganDTOAssembler"></bean>
+    <bean id="lowonganService" class="com.agit.brooks2.application.impl.LowonganServiceImpl">
+        <property name="lowonganRepository" ref="lowonganRepository"/>
+        <property name="lowonganDTOAssembler" ref="lowonganDTOAssembler"/>
+    </bean>	
+</beans>
