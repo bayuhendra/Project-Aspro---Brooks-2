@@ -1,18 +1,16 @@
-package com.agit.brooks2.domain.paymenthistory;
+package com.agit.brooks2.common.dto.core;
 
-import com.agit.brooks2.shared.object.EntityObject;
 import com.agit.brooks2.shared.status.Status;
 import com.agit.brooks2.shared.status.StatusPayment;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 
 /**
  *
- * @author Zaky
+ * @author 3AD
  */
-public class PaymentHistory implements EntityObject<PaymentHistory> {
+public class PaymentHistoryDTO implements Serializable {
 
-    long id;
     private String idPayment;
     private String totalPayment;
     private StatusPayment statusPayment;
@@ -23,10 +21,10 @@ public class PaymentHistory implements EntityObject<PaymentHistory> {
     private Date modifiedDate;
     private Status status;
 
-    public PaymentHistory() {
+    public PaymentHistoryDTO() {
     }
 
-    public PaymentHistory(String idPayment, String totalPayment, StatusPayment statusPayment, String attachment, String createdBy, Date createdDate, String modifiedBy, Date modifiedDate, Status status) {
+    public PaymentHistoryDTO(String idPayment, String totalPayment, StatusPayment statusPayment, String attachment, String createdBy, Date createdDate, String modifiedBy, Date modifiedDate, Status status) {
         this.idPayment = idPayment;
         this.totalPayment = totalPayment;
         this.statusPayment = statusPayment;
@@ -36,14 +34,6 @@ public class PaymentHistory implements EntityObject<PaymentHistory> {
         this.modifiedBy = modifiedBy;
         this.modifiedDate = modifiedDate;
         this.status = status;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getIdPayment() {
@@ -119,48 +109,8 @@ public class PaymentHistory implements EntityObject<PaymentHistory> {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + Objects.hashCode(this.idPayment);
-        hash = 37 * hash + Objects.hashCode(this.totalPayment);
-        hash = 37 * hash + Objects.hashCode(this.statusPayment);
-        hash = 37 * hash + Objects.hashCode(this.attachment);
-        hash = 37 * hash + Objects.hashCode(this.createdBy);
-        hash = 37 * hash + Objects.hashCode(this.createdDate);
-        hash = 37 * hash + Objects.hashCode(this.modifiedBy);
-        hash = 37 * hash + Objects.hashCode(this.modifiedDate);
-        hash = 37 * hash + Objects.hashCode(this.status);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final PaymentHistory other = (PaymentHistory) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
-    }
-
-    public void assignNewPaymentHistory(PaymentHistory paymentHistory) {
-        this.idPayment = paymentHistory.idPayment;
-        this.totalPayment = paymentHistory.totalPayment;
-        this.statusPayment = paymentHistory.statusPayment;
-        this.attachment = paymentHistory.attachment;
-        this.modifiedBy = paymentHistory.modifiedBy;
-        this.modifiedDate = paymentHistory.modifiedDate;
-        this.status = paymentHistory.status;
-    }
-
-    @Override
-    public boolean sameIdentityAs(PaymentHistory other) {
-        return this.equals(other);
+    public String toString() {
+        return "PaymentHistoryDTO{" + "idPayment=" + idPayment + ", totalPayment=" + totalPayment + ", statusPayment=" + statusPayment + ", attachment=" + attachment + ", createdBy=" + createdBy + ", createdDate=" + createdDate + ", modifiedBy=" + modifiedBy + ", modifiedDate=" + modifiedDate + ", status=" + status + '}';
     }
 
 }

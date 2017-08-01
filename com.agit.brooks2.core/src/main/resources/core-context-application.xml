@@ -16,4 +16,10 @@
         <property name="rentalUnitRepository" ref="rentalUnitRepository"/>
         <property name="rentalUnitDTOAssembler" ref="rentalUnitDTOAssembler"/>
     </bean>
+    
+    <bean id="paymentHistoryDTOAssembler" class="com.agit.brooks2.interfaces.web.facade.dto.assembler.PaymentHistoryDTOAssembler"></bean>
+    <bean id="paymentHistoryService" class="com.agit.brooks2.application.impl.PaymentHistoryServiceImpl">
+        <property name="paymentHistoryRepository" ref="paymentHistoryRepository"/>
+        <property name="paymentHistoryDTOAssembler" ref="paymentHistoryDTOAssembler"/>
+    </bean>
 </beans>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field">
+    <class mutable="true" name="com.agit.brooks2.domain.paymenthistory.PaymentHistory" table="AGIT_PAYMENTHISTORY">
+        <!--<cache usage="read-only"/>-->
+        <id column="id" name="id">
+            <generator class="org.hibernate.id.IdentityGenerator"/>
+        </id>
+        <property column="idPayment" name="idPayment" not-null="false"/>
+        <property column="totalPayment" name="totalPayment" not-null="false"/>
+        <property column="attachment" name="attachment" not-null="false"/>
+        <property column="statusPayment" name="statusPayment" not-null="true" update="true">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.agit.brooks2.shared.status.StatusPayment</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+        <property column="createdBy" name="createdBy" not-null="false"/>
+        <property column="createdDate" name="createdDate" not-null="false"/>
+        <property column="modifiedBy" name="modifiedBy" not-null="false"/>
+        <property column="modifiedDate" name="modifiedDate" not-null="false"/>
+        <property column="status" name="status" not-null="true" update="true">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.agit.brooks2.shared.status.Status</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+        
+    </class>
+</hibernate-mapping>
