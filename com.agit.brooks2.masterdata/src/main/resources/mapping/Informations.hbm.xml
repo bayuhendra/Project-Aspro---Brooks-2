@@ -8,7 +8,7 @@
         <property column="idNews" name="idNews" not-null="false"/>
         <property column="tittleNews" name="tittleNews" not-null="false"/>
         <property column="descriptionNews" name="descriptionNews" not-null="false"/>
-        <property column="statusProject" name="statusProject" not-null="true" update="true">
+        <property column="statusProject" name="statusProject" not-null="false" update="true">
             <type name="org.hibernate.type.EnumType">
                 <param name="enumClass">com.agit.brooks2.shared.status.Status</param>
                 <param name="type">12</param>
@@ -16,7 +16,7 @@
         </property>
         <property column="photoInformation" name="photoInformation" not-null="false"/>
         <property column="urlPhotoInformation" name="urlPhotoInformation" not-null="false"/>
-        <property column="status" name="status" not-null="true" update="true">
+        <property column="status" name="status" not-null="false" update="true">
             <type name="org.hibernate.type.EnumType">
                 <param name="enumClass">com.agit.brooks2.shared.status.Status</param>
                 <param name="type">12</param>

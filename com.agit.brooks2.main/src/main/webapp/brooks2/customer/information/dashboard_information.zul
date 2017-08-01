@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.InformationVM')"
+            form="@id('fx') @load(vm.informationsDTO) @save(vm.informationsDTO, before='buttonSaveDataInformations')">
+        <div sclass="col-md-9 nopadding" width="100%">
+            <groupbox sclass="col-md-12">
+                <listbox  rows="10" mold="paging" emptyMessage="${labels.common.noDataFound}" model="@bind(vm.informationsDTOs)">
+                    <listhead >
+                        <listheader sclass="isi"  width="15%" align="center "/>
+                        <listheader sclass="isi" label="News" width="50%" align="center "/>
+                        <listheader sclass="isi" label="Action" width="7%" align="center"/>
+                    </listhead>
+                    <template name="model">
+                        <listitem value="${each}" style="margin-bottom:20px;">
+                            <listcell>
+                                <image
+                                    src="/images/default_image.png" />
+                                <label value="" />
+                            </listcell>
+                            <listcell style="border:1px solid #dcdcdc;">
+                                <separator></separator>
+                                <label sclass="judulLowongan label label-danger" width="100%" value="@bind(each.tittleNews)" style="text-align: left;"/>
+                                <separator bar="true"/>
+                                <label sclass="isi" width="100%" style="text-align: justify; display: block; padding:10px;" value="@bind(each.descriptionNews)"/>
+                                <separator bar="true"/>
+                                <label sclass="isi" width="100%" style="text-align: left;" value="@bind(each.createdDate)"/>
+                                <separator bar="true"/> 
+                            </listcell>
+                            <listcell>
+                                <a sclass="isi btn btn-primary" label="Detail"  onClick="@command('buttonDetailInformationsCus', object=each)"></a>
+                            </listcell>
+                        </listitem>
+                    </template>
+                </listbox>
+            </groupbox>
+        </div>
+    </window>
+</zk>

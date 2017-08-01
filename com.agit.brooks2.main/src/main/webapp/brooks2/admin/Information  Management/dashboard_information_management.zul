@@ -1,0 +1,73 @@
+    <zk xmlns="http://www.zkoss.org/2005/zul">
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.InformationVM')"
+            form="@id('fx') @load(vm.informationsDTO) @save(vm.informationsDTO, before='buttonSaveDataInformations')">
+        <groupbox height="500px" closable="false" mold="3d" style="background:#f5f5f5" sclass="col-md-12 nopadding" >
+            <caption sclass="isi" label="Dashboard Information Management" />
+            <div sclass="col-md-3 nopadding">
+                
+                <div class="form-group" style="font-style:bold;">
+                    <label sclass="isi" value="Search Filter :" />
+                    <separator bar="true"/>
+                </div>
+                <div class="form-group">
+                    <label sclass="isi" value="ID Information" style="font-weight:bold"/>
+                    <textbox sclass="form-control" width="100%"/>
+                </div>
+                <div class="form-group">
+                    <label sclass="isi" value="Tittle Information" style="font-weight:bold"/>
+                    <textbox sclass="form-control" width="100%"/>
+                </div>
+                <div class="form-group">
+                    <label sclass="labelstyle" value="Status" />
+                    <listbox mold="select" sclass="form-control">
+                        <template name="model" var="items" >
+                            <listitem label="@load(items)"  value="@load(items)" />
+                        </template>
+                    </listbox>
+                </div>
+                <div>
+                    <a sclass="btn btn-success" width="100%" label="Search"/>
+                    <separator/>
+                    <a sclass="btn btn-success" width="100%" label="Add Information" onClick="@command('buttonCreateInformation')"/>
+                </div>
+            </div>
+            <div sclass="col-md-9 nopadding">
+                <groupbox closable="false" sclass="col-md-12">
+                    <listbox rows="11" mold="paging" emptyMessage="${labels.common.noDataFound}" 
+                             model="@bind(vm.informationsDTOs)">
+                        <listhead>
+                            <listheader sclass="isi bold" label="ID Information" width="22%"/>
+                            <listheader sclass="isi bold" label="Tittle Information" width="50%" align="center"/>
+                            <listheader sclass="isi bold" label="Created Date" width="40%" align="center"/>
+                            <listheader sclass="isi bold" label="Status" width="20%" align="center"/>  
+                            <listheader sclass="isi bold" label="Action" width="20%" align="center"/>                                           
+                        </listhead>
+                        <template name="model">
+                            <listitem value="${each}">
+                                <listcell>
+                                    <label width="100%" value="@bind(each.idNews)"/>
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" value="@bind(each.tittleNews)"/>
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" value="@bind(each.createdDate)"/>
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" value="@bind(each.status)"/>
+                                </listcell>
+                                <listcell>
+                                    <a sclass="btn btn-warning " label="Detail" style="text-decoration:underline ;color:white" onClick="@command('buttonDetailInformations', object=each)"></a>
+                                    <separator/>
+                                    <a sclass="btn btn-danger " label="Delete" style="text-decoration:underline ;color:white" onClick="@command('deleteInformations', object=each)"></a>
+                                </listcell>
+                            </listitem>
+                        </template>
+                    </listbox>
+                </groupbox>
+            </div>            
+            <separator height="30px"/>
+        </groupbox>
+    </window>
+</zk>

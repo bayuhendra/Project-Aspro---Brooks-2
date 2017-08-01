@@ -21,12 +21,19 @@ INSERT INTO "public"."mst_privilege" VALUES ('16', 'USER_RELEASE', 'User Release
 INSERT INTO "public"."mst_privilege" VALUES ('17', 'MENU', 'Menu Dashboard', 'ACTIVE', 'ADMINISTRATOR', 't', 'Menu Management', null, null, null, '2016-01-01 00:00:00', 'SYSTEM');
 INSERT INTO "public"."mst_privilege" VALUES ('18', 'MENU_MANAGEMENT', 'Menu Dashboard', 'ACTIVE', 'MENU', 't', 'Menu - Dashboard', 'Menu - Dashboard', null, '~./ui/fnd/menu/dashboard.privilege.zul', '2016-01-01 00:00:00', 'SYSTEM');
 
+INSERT INTO "public"."mst_privilege" VALUES ('19', 'ADMIN_MANAGEMENT', 'Admin', 'ACTIVE', 'ADMINISTRATOR', 't', 'Admin Management', null, null, null, '2016-01-01 00:00:00', 'SYSTEM');
+INSERT INTO "public"."mst_privilege" VALUES ('20', 'INFORMATION_MANAGEMENT', 'Admin Management', 'ACTIVE', 'ADMIN_MANAGEMENT', 't', 'Dashboard - Information Management', 'Dashboard - Information Management', null, '/brooks2/admin/Information  Management/dashboard_information_management.zul', '2016-01-01 00:00:00', 'SYSTEM');
+
+
+INSERT INTO "public"."mst_privilege" VALUES ('21', 'MENU_CUSTOMER', 'Admin', 'ACTIVE', 'ADMINISTRATOR', 't', 'Menu Information', null, null, null, '2016-01-01 00:00:00', 'SYSTEM');
+INSERT INTO "public"."mst_privilege" VALUES ('22', 'MENU_INFORMATION', 'Menu Information', 'ACTIVE', 'MENU_CUSTOMER', 't', 'Menu - Information', 'Menu - Information', null, '/brooks2/customer/information/dashboard_information.zul', '2016-01-01 00:00:00', 'SYSTEM');
 
 -- ----------------------------
 -- Records of mst_role
 -- ----------------------------
 INSERT INTO "public"."mst_role" VALUES ('1', 'SUPERADMIN', 'SUPERADMIN', 'SUPERADMIN', 'ACTIVE', '2016-01-01 00:00:00', 'SUPERADMIN');
 INSERT INTO "public"."mst_role" VALUES ('2', 'ADMIN', 'ADMIN', 'ADMIN', 'ACTIVE', '2016-01-01 00:00:00', 'SUPERADMIN');
+INSERT INTO "public"."mst_role" VALUES ('3', 'CUSTOMER', 'CUSTOMER', 'CUSTOMER', 'ACTIVE', '2016-01-01 00:00:00', 'SUPERADMIN');
 
 -- ----------------------------
 -- Records of mst_role_privilege
@@ -34,9 +41,11 @@ INSERT INTO "public"."mst_role" VALUES ('2', 'ADMIN', 'ADMIN', 'ADMIN', 'ACTIVE'
 INSERT INTO "public"."mst_role_privilege" VALUES ('1', '1', 'ALLOW', '0');
 INSERT INTO "public"."mst_role_privilege" VALUES ('2', '2', 'ALLOW', '0');
 INSERT INTO "public"."mst_role_privilege" VALUES ('2', '8', 'ALLOW', '1');
+INSERT INTO "public"."mst_role_privilege" VALUES ('3', '21', 'ALLOW', '0');
 
 -- ----------------------------
 -- Records of mst_user
 -- ----------------------------
 INSERT INTO "public"."mst_user" VALUES ('1', 'SUPERADMIN', '$2a$10$vW7zns/PRqfHgaxN3DpJuuH2n1mI152gMxO6Lnm4X6zrAEXDPBAUC', 'USER001', '1200101', 'ACTIVE', '1', 'Super Admin', 'superadmin@bitozen.com', '0811111111', 'SYSTEM', '001', null, 'TI', 'JAKARTA', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', null, null, '0', '2016-09-21 15:37:06.305', null, null, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1', '1e2fuhqu103ts1uv76m4k3czc', '2016-01-01 00:00:00', 'SYSTEM');
 INSERT INTO "public"."mst_user" VALUES ('2', 'ADMIN', '$2a$10$57J57UK4Wxa6GUWig2QyA.KYv5GgiHeXUIUppRtmczWSlTJd35iba', 'USER002', '1200102', 'ACTIVE', '2', 'Admin', 'admin@bitozen.com', '0811111111', 'SUPERADMIN', '001', null, 'TI', 'BANDUNG', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', null, null, '0', null, null, null, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1', null, '2016-01-01 00:00:00', 'SUPERADMIN');
+INSERT INTO "public"."mst_user" VALUES ('3', 'CUSTOMER', '$2a$10$57J57UK4Wxa6GUWig2QyA.KYv5GgiHeXUIUppRtmczWSlTJd35iba', 'USER003', '1200102', 'ACTIVE', '3', 'Admin', 'admin@bitozen.com', '0811111111', 'SUPERADMIN', '001', null, 'TI', 'BANDUNG', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', '1970-01-01 00:00:00', '1970-01-01 23:59:00', null, null, '0', null, null, null, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1', null, '2016-01-01 00:00:00', 'SUPERADMIN');

@@ -24,13 +24,13 @@
                 <!-- Header -->
                 <borderlayout >
                     <north sclass="isi" height="80px" border="none">
-                        <borderlayout  style="background:#7C1442;">
-                            <west border="none" size="20%" style="background:#7C1442;">
-                                <div style="padding:30px;">
-                                    <label sclass="isi" style="color:white;font-size:20px;font-weight:bold" value="App Brooks 2"/>
+                        <borderlayout  style="background:#0523AD;">
+                            <west border="none" size="20%" style="background:#0523AD;">
+                                <div style="padding:20px;">
+                                    <label sclass="isi" style="color:white;font-size:30px;font-weight:bold" value="App Brooks 2"/>
                                 </div>
                             </west>
-                            <east border="none" style="background:#7C1442; color:#fff;">
+                            <east border="none" style="background:#0523AD; color:#fff;">
                                 <div style="padding:15px;">
                                     <!--                            <label value="Logged" style="font-weight:bold"/>-->
                                     <label value="@load(vm.concat(vm.user.userSpecificationDTO.fullName, vm.concat(' - ',vm.user.roleDTO.roleName)))" style="font-weight:bold" />
@@ -47,7 +47,7 @@
                     <!-- Menu -->
                     <!--                    <west sclass="isi" splittable="true" width="20%" collapsible="true" border="none"
                           title="${labels.workspace.label.menu}" flex="true" autoscroll="true">
-                        <tree model="@load(vm.model)" sclass="list-group" style="background:#7C1442;">
+                        <tree model="@load(vm.model)" sclass="list-group" style="background:#0523AD;">
                             <template name="model">
                                 <treeitem label="@load(each.menuName)" onClick="@command('menuClick', obj=each)" visible="${sec:isAllGranted(each.privilegeID)}" />
                             </template>
@@ -79,11 +79,11 @@
 
                     <!-- Footer -->
                     <south border="none" size="25px" >
-                        <borderlayout  style="background:#7C1442;">
-                            <west border="none" style="width:50% ;color:#fff; padding: 5px 10px 0px 10px; background:#7C1442;" sclass="isi">
+                        <borderlayout  style="background:#0523AD;">
+                            <west border="none" style="width:50% ;color:#fff; padding: 5px 10px 0px 10px; background:#0523AD;" sclass="isi">
                                 Copyright 2017 &#169; AGIT - App Brooks 2
                             </west>
-                            <east border="none" style="color:#fff; padding: 5px 5px 0px 0px; background:#7C1442;">
+                            <east border="none" style="color:#fff; padding: 5px 5px 0px 0px; background:#0523AD;">
                                 <div align="left">
                                     <label sclass="isi" value="@load(vm.concatDate('Date: ',vm.user.userSpecificationDTO.userLoginInfoDTO.loginDate))" />
                                     <space/>
