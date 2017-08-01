@@ -11,11 +11,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang.Validate;
+import org.springframework.stereotype.Controller;
 
 /**
  *
  * @author Zaky
  */
+@Controller
 public class RentalUnitServiceImpl implements RentalUnitService{
     private RentalUnitRepository rentalUnitRepository;
     private RentalUnitDTOAssembler rentalUnitDTOAssembler;
@@ -54,7 +56,7 @@ public class RentalUnitServiceImpl implements RentalUnitService{
                 .setIdRentalUnit("RU0001")
                 .setNameRentalUnit("Rumah1")
                 .setDetailRentalUnit("Rumah nomor 1")
-                .setDataPhotoRentalUnit("gambar Rumah 1")
+                .setDataPhotoRentalUnit(Byte.MIN_VALUE)
                 .setUrlPhotoRentalUnit("url rumah 1")
                 .setCreatedBy("DUMMY")
                 .setCreatedDate(new Date())

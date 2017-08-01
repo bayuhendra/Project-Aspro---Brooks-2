@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field">
-    <class mutable="true" name="com.agit.brooks2.domain.rentalunit.RentalUnit" table="AGIT_RENTAL_UNIT">
+    <class mutable="true" name="com.agit.brooks2.domain.secondaryunit.SecondaryUnit" table="AGIT_SECONDARY_UNIT">
         <!--<cache usage="read-only"/>-->
         <id column="id" name="id">
             <generator class="org.hibernate.id.IdentityGenerator"/>
         </id>
-        <property column="idRentalUnit" name="idRentalUnit" not-null="false"/>
-        <property column="nameRentalUnit" name="nameRentalUnit" not-null="false"/>
-        <property column="detailRentalUnit" name="detailRentalUnit" not-null="false"/>
-        <property column="dataPhotoRentalUnit" name="dataPhotoRentalUnit" not-null="false" type="byte"/>
-        <property column="urlPhotoRentalUnit" name="urlPhotoRentalUnit" not-null="false" />
+        <property column="idSecondaryUnit" name="idSecondaryUnit" not-null="false"/>
+        <property column="nameSecondaryUnit" name="nameSecondaryUnit" not-null="false"/>
+        <property column="detailSecondaryUnit" name="detailSecondaryUnit" not-null="false"/>
+        <property column="dataPhotoSecondaryUnit" name="dataPhotoSecondaryUnit" not-null="false" type="byte"/>
+        <property column="urlPhotoSecondaryUnit" name="urlPhotoSecondaryUnit" not-null="false" />
         
         <property column="createdBy" name="createdBy" not-null="false"/>
         <property column="createdDate" name="createdDate" not-null="false"/>

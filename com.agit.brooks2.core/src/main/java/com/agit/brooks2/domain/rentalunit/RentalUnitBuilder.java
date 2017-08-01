@@ -8,7 +8,7 @@ public class RentalUnitBuilder {
     private String idRentalUnit;
     private String nameRentalUnit;
     private String detailRentalUnit;
-    private String dataPhotoRentalUnit;
+    private byte dataPhotoRentalUnit;
     private String urlPhotoRentalUnit;
     private String createdBy;
     private Date createdDate;
@@ -34,7 +34,7 @@ public class RentalUnitBuilder {
         return this;
     }
 
-    public RentalUnitBuilder setDataPhotoRentalUnit(String dataPhotoRentalUnit) {
+    public RentalUnitBuilder setDataPhotoRentalUnit(byte dataPhotoRentalUnit) {
         this.dataPhotoRentalUnit = dataPhotoRentalUnit;
         return this;
     }

@@ -22,4 +22,16 @@
         <property name="paymentHistoryRepository" ref="paymentHistoryRepository"/>
         <property name="paymentHistoryDTOAssembler" ref="paymentHistoryDTOAssembler"/>
     </bean>
+    
+    <bean id="secondaryUnitDTOAssembler" class="com.agit.brooks2.interfaces.web.facade.dto.assembler.SecondaryUnitDTOAssembler"></bean>
+    <bean id="secondaryUnitService" class="com.agit.brooks2.application.impl.SecondaryUnitServiceImpl">
+        <property name="secondaryUnitRepository" ref="secondaryUnitRepository"/>
+        <property name="secondaryUnitDTOAssembler" ref="secondaryUnitDTOAssembler"/>
+    </bean>
+    
+    <bean id="handOverDTOAssembler" class="com.agit.brooks2.interfaces.web.facade.dto.assembler.HandOverDTOAssembler"></bean>
+    <bean id="handOverService" class="com.agit.brooks2.application.impl.HandOverServiceImpl">
+        <property name="handOverRepository" ref="handOverRepository"/>
+        <property name="handOverDTOAssembler" ref="handOverDTOAssembler"/>
+    </bean>
 </beans>

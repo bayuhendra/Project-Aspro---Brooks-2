@@ -15,7 +15,7 @@ public class RentalUnit implements EntityObject<RentalUnit> {
     private String idRentalUnit;
     private String nameRentalUnit;
     private String detailRentalUnit;
-    private String dataPhotoRentalUnit;
+    private byte dataPhotoRentalUnit;
     private String urlPhotoRentalUnit;
     private String createdBy;
     private Date createdDate;
@@ -26,7 +26,7 @@ public class RentalUnit implements EntityObject<RentalUnit> {
     public RentalUnit() {
     }
 
-    public RentalUnit(String idRentalUnit, String nameRentalUnit, String detailRentalUnit, String dataPhotoRentalUnit, String urlPhotoRentalUnit, String createdBy, Date createdDate, String modifiedBy, Date modifiedDate, Status status) {
+    public RentalUnit(String idRentalUnit, String nameRentalUnit, String detailRentalUnit, byte dataPhotoRentalUnit, String urlPhotoRentalUnit, String createdBy, Date createdDate, String modifiedBy, Date modifiedDate, Status status) {
         this.idRentalUnit = idRentalUnit;
         this.nameRentalUnit = nameRentalUnit;
         this.detailRentalUnit = detailRentalUnit;
@@ -107,14 +107,14 @@ public class RentalUnit implements EntityObject<RentalUnit> {
         this.detailRentalUnit = detailRentalUnit;
     }
 
-    public String getDataPhotoRentalUnit() {
+    public byte getDataPhotoRentalUnit() {
         return dataPhotoRentalUnit;
     }
 
-    public void setDataPhotoRentalUnit(String dataPhotoRentalUnit) {
+    public void setDataPhotoRentalUnit(byte dataPhotoRentalUnit) {
         this.dataPhotoRentalUnit = dataPhotoRentalUnit;
     }
-
+    
     public String getUrlPhotoRentalUnit() {
         return urlPhotoRentalUnit;
     }
@@ -162,8 +162,6 @@ public class RentalUnit implements EntityObject<RentalUnit> {
     public void setStatus(Status status) {
         this.status = status;
     }
-    
-    
     
     @Override
     public boolean sameIdentityAs(RentalUnit other) {

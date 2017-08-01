@@ -23,4 +23,11 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     
+    <bean id="secondaryUnitRepository" class="com.agit.brooks2.domain.infrastructure.persistance.hibernate.SecondaryUnitHibernateRepository">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <bean id="handOverRepository" class="com.agit.brooks2.domain.infrastructure.persistance.hibernate.HandOverHibernateRepository">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 </beans>

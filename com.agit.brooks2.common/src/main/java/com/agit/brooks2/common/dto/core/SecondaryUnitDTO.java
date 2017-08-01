@@ -1,17 +1,15 @@
-package com.agit.brooks2.domain.secondaryunit;
+package com.agit.brooks2.common.dto.core;
 
-import com.agit.brooks2.shared.object.EntityObject;
 import com.agit.brooks2.shared.status.Status;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 
 /**
  *
  * @author Zaky
  */
-public class SecondaryUnit implements EntityObject<SecondaryUnit> {
+public class SecondaryUnitDTO implements Serializable {
 
-    long id;
     private String idSecondaryUnit;
     private String nameSecondaryUnit;
     private String detailSecondaryUnit;
@@ -23,10 +21,10 @@ public class SecondaryUnit implements EntityObject<SecondaryUnit> {
     private Date modifiedDate;
     private Status status;
 
-    public SecondaryUnit() {
+    public SecondaryUnitDTO() {
     }
 
-    public SecondaryUnit(String idSecondaryUnit, String nameSecondaryUnit, String detailSecondaryUnit, byte dataPhotoSecondaryUnit, String urlPhotoSecondaryUnit, String createdBy, Date createdDate, String modifiedBy, Date modifiedDate, Status status) {
+    public SecondaryUnitDTO(String idSecondaryUnit, String nameSecondaryUnit, String detailSecondaryUnit, byte dataPhotoSecondaryUnit, String urlPhotoSecondaryUnit, String createdBy, Date createdDate, String modifiedBy, Date modifiedDate, Status status) {
         this.idSecondaryUnit = idSecondaryUnit;
         this.nameSecondaryUnit = nameSecondaryUnit;
         this.detailSecondaryUnit = detailSecondaryUnit;
@@ -40,47 +38,8 @@ public class SecondaryUnit implements EntityObject<SecondaryUnit> {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 31 * hash + Objects.hashCode(this.idSecondaryUnit);
-        hash = 31 * hash + Objects.hashCode(this.nameSecondaryUnit);
-        hash = 31 * hash + Objects.hashCode(this.detailSecondaryUnit);
-        hash = 31 * hash + Objects.hashCode(this.dataPhotoSecondaryUnit);
-        hash = 31 * hash + Objects.hashCode(this.urlPhotoSecondaryUnit);
-        hash = 31 * hash + Objects.hashCode(this.createdBy);
-        hash = 31 * hash + Objects.hashCode(this.createdDate);
-        hash = 31 * hash + Objects.hashCode(this.modifiedBy);
-        hash = 31 * hash + Objects.hashCode(this.modifiedDate);
-        hash = 31 * hash + Objects.hashCode(this.status);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final SecondaryUnit other = (SecondaryUnit) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
-    }
-
-    public void assignNewSecondaryUnit(SecondaryUnit secondaryUnit) {
-        this.idSecondaryUnit = secondaryUnit.idSecondaryUnit;
-        this.nameSecondaryUnit = secondaryUnit.nameSecondaryUnit;
-        this.detailSecondaryUnit = secondaryUnit.detailSecondaryUnit;
-        this.dataPhotoSecondaryUnit = secondaryUnit.dataPhotoSecondaryUnit;
-        this.urlPhotoSecondaryUnit = secondaryUnit.urlPhotoSecondaryUnit;
-        this.createdBy = secondaryUnit.createdBy;
-        this.createdDate = secondaryUnit.createdDate;
-        this.modifiedBy = secondaryUnit.modifiedBy;
-        this.modifiedDate = secondaryUnit.modifiedDate;
-        this.status = secondaryUnit.status;
+    public String toString() {
+        return "SecondaryUnitDTO{" + "idSecondaryUnit=" + idSecondaryUnit + ", nameSecondaryUnit=" + nameSecondaryUnit + ", detailSecondaryUnit=" + detailSecondaryUnit + ", dataPhotoSecondaryUnit=" + dataPhotoSecondaryUnit + ", urlPhotoSecondaryUnit=" + urlPhotoSecondaryUnit + ", createdBy=" + createdBy + ", createdDate=" + createdDate + ", modifiedBy=" + modifiedBy + ", modifiedDate=" + modifiedDate + ", status=" + status + '}';
     }
 
     public String getIdSecondaryUnit() {
@@ -114,7 +73,7 @@ public class SecondaryUnit implements EntityObject<SecondaryUnit> {
     public void setDataPhotoSecondaryUnit(byte dataPhotoSecondaryUnit) {
         this.dataPhotoSecondaryUnit = dataPhotoSecondaryUnit;
     }
-    
+
     public String getUrlPhotoSecondaryUnit() {
         return urlPhotoSecondaryUnit;
     }
@@ -162,11 +121,5 @@ public class SecondaryUnit implements EntityObject<SecondaryUnit> {
     public void setStatus(Status status) {
         this.status = status;
     }
-    
-    
 
-    @Override
-    public boolean sameIdentityAs(SecondaryUnit other) {
-        return this.equals(other);
-    }
 }

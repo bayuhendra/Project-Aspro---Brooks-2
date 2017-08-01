@@ -13,7 +13,7 @@ public class RentalUnitDTO implements Serializable {
     private String idRentalUnit;
     private String nameRentalUnit;
     private String detailRentalUnit;
-    private String dataPhotoRentalUnit;
+    private byte dataPhotoRentalUnit;
     private String urlPhotoRentalUnit;
     private String createdBy;
     private Date createdDate;
@@ -24,7 +24,7 @@ public class RentalUnitDTO implements Serializable {
     public RentalUnitDTO() {
     }
 
-    public RentalUnitDTO(String idRentalUnit, String nameRentalUnit, String detailRentalUnit, String dataPhotoRentalUnit, String urlPhotoRentalUnit, String createdBy, Date createdDate, String modifiedBy, Date modifiedDate, Status status) {
+    public RentalUnitDTO(String idRentalUnit, String nameRentalUnit, String detailRentalUnit, byte dataPhotoRentalUnit, String urlPhotoRentalUnit, String createdBy, Date createdDate, String modifiedBy, Date modifiedDate, Status status) {
         this.idRentalUnit = idRentalUnit;
         this.nameRentalUnit = nameRentalUnit;
         this.detailRentalUnit = detailRentalUnit;
@@ -66,11 +66,11 @@ public class RentalUnitDTO implements Serializable {
         this.detailRentalUnit = detailRentalUnit;
     }
 
-    public String getDataPhotoRentalUnit() {
+    public byte getDataPhotoRentalUnit() {
         return dataPhotoRentalUnit;
     }
 
-    public void setDataPhotoRentalUnit(String dataPhotoRentalUnit) {
+    public void setDataPhotoRentalUnit(byte dataPhotoRentalUnit) {
         this.dataPhotoRentalUnit = dataPhotoRentalUnit;
     }
 
