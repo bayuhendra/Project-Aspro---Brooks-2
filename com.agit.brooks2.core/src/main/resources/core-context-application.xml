@@ -10,4 +10,10 @@
         <property name="lowonganRepository" ref="lowonganRepository"/>
         <property name="lowonganDTOAssembler" ref="lowonganDTOAssembler"/>
     </bean>	
+    
+    <bean id="rentalUnitDTOAssembler" class="com.agit.brooks2.interfaces.web.facade.dto.assembler.RentalUnitDTOAssembler"></bean>
+    <bean id="rentalUnitService" class="com.agit.brooks2.application.impl.RentalUnitServiceImpl">
+        <property name="rentalUnitRepository" ref="rentalUnitRepository"/>
+        <property name="rentalUnitDTOAssembler" ref="rentalUnitDTOAssembler"/>
+    </bean>
 </beans>
