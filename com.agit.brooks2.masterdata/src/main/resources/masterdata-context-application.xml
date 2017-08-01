@@ -17,4 +17,9 @@
         <property name="informationsDTOAssembler" ref="informationsDTOAssembler"/>
     </bean>	
    
+    <bean id="furnitureDTOAssembler" class="com.agit.brooks2.masterdata.interfaces.web.facade.dto.assembler.FurnitureDTOAssembler"></bean>
+    <bean id="furnitureService" class="com.agit.brooks2.masterdata.application.impl.FurnitureServiceImpl">
+        <property name="furnitureRepository" ref="furnitureRepository"/>
+        <property name="furnitureDTOAssembler" ref="furnitureDTOAssembler"/>
+    </bean>
 </beans>

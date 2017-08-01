@@ -27,7 +27,7 @@ public class ProjectHibernateRepository extends HibernateRepository implements P
 
     @Override
     public void delete(Project project) {
-        Query query = getSession().createQuery("delete com.agit.brooks2.masterdata.domain.project.Project where idProject = :ipj");
+        Query query = getSession().createQuery("delete from com.agit.brooks2.masterdata.domain.project.Project where idProject = :ipj");
         query.setParameter("ipj", project.getIdProject());
         query.executeUpdate();
     }

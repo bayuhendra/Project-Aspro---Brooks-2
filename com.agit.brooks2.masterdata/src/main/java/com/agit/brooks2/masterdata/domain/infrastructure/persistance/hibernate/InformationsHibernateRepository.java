@@ -27,7 +27,7 @@ public class InformationsHibernateRepository extends HibernateRepository impleme
 
     @Override
     public void delete(Informations informations) {
-        Query query = getSession().createQuery("delete com.agit.brooks2.masterdata.domain.information.Informations where idNews = :ipj");
+        Query query = getSession().createQuery("delete from com.agit.brooks2.masterdata.domain.information.Informations where idNews = :ipj");
         query.setParameter("ipj", informations.getIdNews());
         query.executeUpdate();
     }

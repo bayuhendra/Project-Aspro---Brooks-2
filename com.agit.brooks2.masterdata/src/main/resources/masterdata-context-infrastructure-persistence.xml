@@ -18,4 +18,8 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>  
     
+    <bean id="furnitureRepository" class="com.agit.brooks2.masterdata.domain.infrastructure.persistance.hibernate.FurnitureHibernateRepository">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean> 
+    
 </beans>
