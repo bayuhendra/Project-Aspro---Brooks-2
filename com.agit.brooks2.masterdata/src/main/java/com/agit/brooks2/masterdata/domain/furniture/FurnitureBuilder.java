@@ -12,7 +12,7 @@ public class FurnitureBuilder {
 
     private String idFurniture;
     private String nameFurniture;
-    private Byte photoFurniture;
+    private byte photoFurniture;
     private String urlPhoto;
     private Status status;
     private String descriptionFurniture;
@@ -34,7 +34,7 @@ public class FurnitureBuilder {
         return this;
     }
 
-    public FurnitureBuilder setPhotoFurniture(Byte photoFurniture) {
+    public FurnitureBuilder setPhotoFurniture(byte photoFurniture) {
         this.photoFurniture = photoFurniture;
         return this;
     }

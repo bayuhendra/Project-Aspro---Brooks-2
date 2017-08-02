@@ -13,8 +13,8 @@ public class InformationsDTO implements Serializable {
     private String idNews;
     private String tittleNews;
     private String descriptionNews;
-    private Status statusProject;
-    private Byte photoInformation;
+    private String statusProject;
+    private byte photoInformation;
     private String urlPhotoInformation;
     private Status status;
     private Date createdDate;
@@ -25,7 +25,7 @@ public class InformationsDTO implements Serializable {
     public InformationsDTO() {
     }
 
-    public InformationsDTO(String idNews, String tittleNews, String descriptionNews, Status statusProject, Byte photoInformation, String urlPhotoInformation, Status status, Date createdDate, String createdBy, String modifiedBy, Date modifiedDate) {
+    public InformationsDTO(String idNews, String tittleNews, String descriptionNews, String statusProject, byte photoInformation, String urlPhotoInformation, Status status, Date createdDate, String createdBy, String modifiedBy, Date modifiedDate) {
         this.idNews = idNews;
         this.tittleNews = tittleNews;
         this.descriptionNews = descriptionNews;
@@ -63,19 +63,19 @@ public class InformationsDTO implements Serializable {
         this.descriptionNews = descriptionNews;
     }
 
-    public Status getStatusProject() {
+    public String getStatusProject() {
         return statusProject;
     }
 
-    public void setStatusProject(Status statusProject) {
+    public void setStatusProject(String statusProject) {
         this.statusProject = statusProject;
     }
 
-    public Byte getPhotoInformation() {
+    public byte getPhotoInformation() {
         return photoInformation;
     }
 
-    public void setPhotoInformation(Byte photoInformation) {
+    public void setPhotoInformation(byte photoInformation) {
         this.photoInformation = photoInformation;
     }
 

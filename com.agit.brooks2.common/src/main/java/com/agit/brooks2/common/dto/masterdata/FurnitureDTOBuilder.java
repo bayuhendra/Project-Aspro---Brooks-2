@@ -12,7 +12,7 @@ public class FurnitureDTOBuilder {
 
     private String idFurniture;
     private String nameFurniture;
-    private Byte photoFurniture;
+    private byte photoFurniture;
     private String urlPhoto;
     private Status status;
     private String descriptionFurniture;
@@ -34,7 +34,7 @@ public class FurnitureDTOBuilder {
         return this;
     }
 
-    public FurnitureDTOBuilder setPhotoFurniture(Byte photoFurniture) {
+    public FurnitureDTOBuilder setPhotoFurniture(byte photoFurniture) {
         this.photoFurniture = photoFurniture;
         return this;
     }

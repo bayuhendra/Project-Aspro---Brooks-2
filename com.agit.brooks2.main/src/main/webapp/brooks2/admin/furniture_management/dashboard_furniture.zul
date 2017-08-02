@@ -1,0 +1,70 @@
+    <zk xmlns="http://www.zkoss.org/2005/zul">
+    <window>
+        <groupbox height="500px" closable="false" mold="3d" style="background:#f5f5f5" sclass="col-md-12 nopadding" >
+            <caption sclass="isi" label="Dashboard Furniture Management" />
+            <div sclass="col-md-3 nopadding">
+                
+                <div class="form-group" style="font-style:bold;">
+                    <label sclass="isi" value="Search Filter :" />
+                    <separator bar="true"/>
+                </div>
+                <div class="form-group">
+                    <label sclass="isi" value="ID Furniture" style="font-weight:bold"/>
+                    <textbox sclass="form-control" width="100%"/>
+                </div>
+                <div class="form-group">
+                    <label sclass="isi" value="Name Furniture" style="font-weight:bold"/>
+                    <textbox sclass="form-control" width="100%"/>
+                </div>
+                <div class="form-group">
+                    <label sclass="labelstyle" value="Status" />
+                    <listbox mold="select" sclass="form-control">
+                        <template name="model" var="items" >
+                            <listitem label="@load(items)"  value="@load(items)" />
+                        </template>
+                    </listbox>
+                </div>
+                <div>
+                    <a sclass="btn btn-success" width="100%" label="Search"/>
+                    <separator/>
+                    <a sclass="btn btn-success" width="100%" label="Add Furniture" onClick=""/>
+                </div>
+            </div>
+            <div sclass="col-md-9 nopadding">
+                <groupbox closable="false" sclass="col-md-12">
+                    <listbox rows="11" mold="paging" emptyMessage="${labels.common.noDataFound}" >
+                        <listhead>
+                            <listheader sclass="isi bold" label="ID Furniture" width="22%"/>
+                            <listheader sclass="isi bold" label="Name Furniture" width="50%" align="center"/>
+                            <listheader sclass="isi bold" label="Photo Furniture" width="40%" align="center"/>
+                            <listheader sclass="isi bold" label="Status" width="20%" align="center"/>  
+                            <listheader sclass="isi bold" label="Action" width="20%" align="center"/>                                           
+                        </listhead>
+                        <template name="model">
+                            <listitem value="${each}">
+                                <listcell>
+                                    <label width="100%" />
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" />
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" />
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" />
+                                </listcell>
+                                <listcell>
+                                    <a sclass="btn btn-warning " label="Detail" style="text-decoration:underline ;color:white" onClick=""></a>
+                                    <separator/>
+                                    <a sclass="btn btn-danger " label="Delete" style="text-decoration:underline ;color:white" onClick=""></a>
+                                </listcell>
+                            </listitem>
+                        </template>
+                    </listbox>
+                </groupbox>
+            </div>            
+            <separator height="30px"/>
+        </groupbox>
+    </window>
+</zk>

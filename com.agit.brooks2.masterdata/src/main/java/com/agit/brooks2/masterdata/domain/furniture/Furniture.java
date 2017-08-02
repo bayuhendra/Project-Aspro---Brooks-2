@@ -14,7 +14,7 @@ public class Furniture implements EntityObject<Furniture> {
     long id;
     private String idFurniture;
     private String nameFurniture;
-    private Byte photoFurniture;
+    private byte photoFurniture;
     private String urlPhoto;
     private Status status;
     private String descriptionFurniture;
@@ -26,7 +26,7 @@ public class Furniture implements EntityObject<Furniture> {
     public Furniture() {
     }
 
-    public Furniture(String idFurniture, String nameFurniture, Byte photoFurniture, String urlPhoto, Status status, String descriptionFurniture, Date createdDate, String createdBy, String modifiedBy, Date modifiedDate) {
+    public Furniture(String idFurniture, String nameFurniture, byte photoFurniture, String urlPhoto, Status status, String descriptionFurniture, Date createdDate, String createdBy, String modifiedBy, Date modifiedDate) {
         this.idFurniture = idFurniture;
         this.nameFurniture = nameFurniture;
         this.photoFurniture = photoFurniture;
@@ -36,22 +36,6 @@ public class Furniture implements EntityObject<Furniture> {
         this.createdDate = createdDate;
         this.createdBy = createdBy;
         this.modifiedBy = modifiedBy;
-        this.modifiedDate = modifiedDate;
-    }
-
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public Date getModifiedDate() {
-        return modifiedDate;
-    }
-
-    public void setModifiedDate(Date modifiedDate) {
         this.modifiedDate = modifiedDate;
     }
 
@@ -79,11 +63,11 @@ public class Furniture implements EntityObject<Furniture> {
         this.nameFurniture = nameFurniture;
     }
 
-    public Byte getPhotoFurniture() {
+    public byte getPhotoFurniture() {
         return photoFurniture;
     }
 
-    public void setPhotoFurniture(Byte photoFurniture) {
+    public void setPhotoFurniture(byte photoFurniture) {
         this.photoFurniture = photoFurniture;
     }
 
@@ -111,6 +95,14 @@ public class Furniture implements EntityObject<Furniture> {
         this.descriptionFurniture = descriptionFurniture;
     }
 
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
     public String getCreatedBy() {
         return createdBy;
     }
@@ -125,6 +117,14 @@ public class Furniture implements EntityObject<Furniture> {
 
     public void setModifiedBy(String modifiedBy) {
         this.modifiedBy = modifiedBy;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
     @Override

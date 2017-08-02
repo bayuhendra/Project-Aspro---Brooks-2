@@ -13,8 +13,8 @@ public class InformationsBuilder {
     private String idNews;
     private String tittleNews;
     private String descriptionNews;
-    private Status statusProject;
-    private Byte photoInformation;
+    private String statusProject;
+    private byte photoInformation;
     private String urlPhotoInformation;
     private Status status;
     private Date createdDate;
@@ -40,12 +40,12 @@ public class InformationsBuilder {
         return this;
     }
 
-    public InformationsBuilder setStatusProject(Status statusProject) {
+    public InformationsBuilder setStatusProject(String statusProject) {
         this.statusProject = statusProject;
         return this;
     }
 
-    public InformationsBuilder setPhotoInformation(Byte photoInformation) {
+    public InformationsBuilder setPhotoInformation(byte photoInformation) {
         this.photoInformation = photoInformation;
         return this;
     }

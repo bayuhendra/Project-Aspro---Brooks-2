@@ -13,8 +13,8 @@ public class InformationsDTOBuilder {
     private String idNews;
     private String tittleNews;
     private String descriptionNews;
-    private Status statusProject;
-    private Byte photoInformation;
+    private String statusProject;
+    private byte photoInformation;
     private String urlPhotoInformation;
     private Status status;
     private Date createdDate;
@@ -40,12 +40,12 @@ public class InformationsDTOBuilder {
         return this;
     }
 
-    public InformationsDTOBuilder setStatusProject(Status statusProject) {
+    public InformationsDTOBuilder setStatusProject(String statusProject) {
         this.statusProject = statusProject;
         return this;
     }
 
-    public InformationsDTOBuilder setPhotoInformation(Byte photoInformation) {
+    public InformationsDTOBuilder setPhotoInformation(byte photoInformation) {
         this.photoInformation = photoInformation;
         return this;
     }

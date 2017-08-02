@@ -17,7 +17,7 @@ public class FurnitureDTO implements Serializable {
 
     private String idFurniture;
     private String nameFurniture;
-    private Byte photoFurniture;
+    private byte photoFurniture;
     private String urlPhoto;
     private Status status;
     private String descriptionFurniture;
@@ -29,7 +29,7 @@ public class FurnitureDTO implements Serializable {
     public FurnitureDTO() {
     }
 
-    public FurnitureDTO(String idFurniture, String nameFurniture, Byte photoFurniture, String urlPhoto, Status status, String descriptionFurniture, Date createdDate, String createdBy, String modifiedBy, Date modifiedDate) {
+    public FurnitureDTO(String idFurniture, String nameFurniture, byte photoFurniture, String urlPhoto, Status status, String descriptionFurniture, Date createdDate, String createdBy, String modifiedBy, Date modifiedDate) {
         this.idFurniture = idFurniture;
         this.nameFurniture = nameFurniture;
         this.photoFurniture = photoFurniture;
@@ -58,11 +58,11 @@ public class FurnitureDTO implements Serializable {
         this.nameFurniture = nameFurniture;
     }
 
-    public Byte getPhotoFurniture() {
+    public byte getPhotoFurniture() {
         return photoFurniture;
     }
 
-    public void setPhotoFurniture(Byte photoFurniture) {
+    public void setPhotoFurniture(byte photoFurniture) {
         this.photoFurniture = photoFurniture;
     }
 
