@@ -1,0 +1,73 @@
+<?component name="signLabel" class="com.agit.brooks2.shared.zul.SignLabel" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window >
+        <separator spacing="5px"/>
+        <groupbox width="700px" closable="false">
+            <caption sclass="isi" label="Add Secondary" style="font-size:16pt; font-weight: bold"/>
+            <groupbox>
+                <grid style="border:0">
+                    <columns>
+                        <column width="20%"></column>
+                        <column width="80%"></column>
+                        <column></column>
+                    </columns>
+                    <rows>
+                        <row>
+                            <signLabel value="ID Secondary" style="font-weight: bold"/>
+                            <textbox width="20%" disabled="true" />
+                        </row>
+                        <row>
+                            <signLabel value="Name Secondary" style="font-weight: bold"/>
+                            <textbox rows="2" width="100%" />
+                        </row>
+                        <row>
+                            <signLabel value="Detail Secondary " style="font-weight: bold"/>
+                            <textbox rows="10" width="100%" maxlength="2000"/>
+                        </row>
+                        <row>
+                            <signLabel value="Status Secondary" style="font-weight: bold"/>
+                            <listbox width="40%" mold="select" sclass="form-control">
+                                <template name="model" var="items" >
+                                    <listitem label="@load(items)"  value="@load(items)" />
+                                </template>
+                            </listbox>
+                        </row>                
+                    </rows>
+                </grid>
+                <groupbox>
+                    <caption sclass="isi" label="Upload Picture" style="font-size:10pt; font-weight: bold"/>
+                    <grid style="border:0">
+                        <columns>
+                            <column width="3%"></column>
+                            <column width="40%"></column>
+                            <column width="20%"></column>
+                            <column></column>
+                        </columns> 
+                        <rows>
+                            <row>
+                                <label value="" />
+                                <textbox class="form-control" width="100%" readonly="true" />
+                                <button sclass="btn btn-success" label="Upload" upload="true"  width="80%">
+                                </button>
+                            </row>
+                        </rows>
+                    </grid>
+                </groupbox>
+                <grid style="border:0">
+                
+                    <columns>
+                        <column align="right" width="50%"/>
+                        <column align="left" width="50%"/>
+                    </columns>
+                
+                    <rows>
+                        <row>
+                            <a sclass="btn btn-success" label="Kembali" width="40%" />
+                            <a sclass="btn btn-success" label="Simpan" width="40%" />
+                        </row>
+                    </rows>
+                </grid>
+            </groupbox>
+        </groupbox>
+    </window>
+</zk>
