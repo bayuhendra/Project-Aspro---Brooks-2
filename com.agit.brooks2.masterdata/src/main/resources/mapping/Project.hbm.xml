@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class mutable="true" name="com.agit.brooks2.masterdata.domain.project.Project" table="AGIT_PROJECT">
-    <id column="id" name="id">
-      <generator class="org.hibernate.id.IdentityGenerator"/>
-    </id>
-    <property column="idProject" name="idProject"/>
-    <property column="nameProject" name="nameProject" not-null="false"/>
-    <property column="status" name="status" not-null="true" update="true">
-      <type name="org.hibernate.type.EnumType">
-        <param name="enumClass">com.agit.brooks2.shared.status.Status</param>
-        <param name="type">12</param>
-      </type>
-    </property>
-    <property column="createdBy" name="createdBy" not-null="false"/>
-    <property column="createdDate" name="createdDate" not-null="false"/>
-    <property column="modifiedBy" name="modifiedBy" not-null="false"/>
-    <property column="modifiedDate" name="modifiedDate" not-null="false"/>
-  </class>
+    <class mutable="true" name="com.agit.brooks2.masterdata.domain.project.Project" table="AGIT_PROJECT">
+        <id column="id" name="id">
+            <generator class="org.hibernate.id.IdentityGenerator"/>
+        </id>
+        <property column="idProject" name="idProject"/>
+        <property column="nameProject" name="nameProject" not-null="false"/>
+        <property column="createdBy" name="createdBy" not-null="false"/>
+        <property column="createdDate" name="createdDate" not-null="false"/>
+        <property column="modifiedBy" name="modifiedBy" not-null="false"/>
+        <property column="modifiedDate" name="modifiedDate" not-null="false"/>
+        <property column="status" name="status" not-null="false" update="true">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.agit.brooks2.shared.status.Status</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+    </class>
 </hibernate-mapping>
