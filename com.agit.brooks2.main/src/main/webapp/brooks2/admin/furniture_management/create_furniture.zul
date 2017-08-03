@@ -1,6 +1,8 @@
 <?component name="signLabel" class="com.agit.brooks2.shared.zul.SignLabel" ?>
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window >
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.FurnitureVM')"
+            form="@id('fx') @load(vm.furnitureDTO) @save(vm.furnitureDTO, before='buttonSaveDataFurniture')">
         <separator spacing="5px"/>
         <groupbox width="700px" closable="false">
             <caption sclass="isi" label="Add Furniture" style="font-size:16pt; font-weight: bold"/>
@@ -14,23 +16,24 @@
                     <rows>
                         <row>
                             <signLabel value="ID Furniture" style="font-weight: bold"/>
-                            <textbox width="20%" disabled="true" />
+                            <textbox width="20%" disabled="true" value="@bind(fx.idFurniture)" />
                         </row>
                         <row>
                             <signLabel value="Name Furniture" style="font-weight: bold"/>
-                            <textbox rows="2" width="100%" />
+                            <textbox rows="2" width="100%" value="@bind(fx.nameFurniture)"/>
                         </row>
                         <row>
                             <signLabel value="Description " style="font-weight: bold"/>
-                            <textbox rows="10" width="100%" maxlength="2000"/>
+                            <textbox rows="10" width="100%" maxlength="2000" value="@bind(fx.descriptionFurniture)"/>
                         </row>
                         <row>
                             <signLabel value="Status Furniture" style="font-weight: bold"/>
-                            <listbox width="40%" mold="select" sclass="form-control">
+                            <combobox model="@load(vm.statuses)" selectedItem="@bind(fx.status)" 
+                                      placeholder="- Status -" autodrop="true" width="20%" readonly="true">
                                 <template name="model" var="items" >
-                                    <listitem label="@load(items)"  value="@load(items)" />
+                                    <comboitem label="@load(items)"  value="@load(items)" />
                                 </template>
-                            </listbox>
+                            </combobox>
                         </row>                
                     </rows>
                 </grid>
@@ -62,8 +65,8 @@
                 
                     <rows>
                         <row>
-                            <a sclass="btn btn-success" label="Kembali" width="40%" />
-                            <a sclass="btn btn-success" label="Simpan" width="40%" />
+                            <a sclass="btn btn-success" label="Kembali" width="40%" onClick="@command('buttonBackCreateFurniture')" />
+                            <a sclass="btn btn-success" label="Simpan" width="40%" onClick="@command('buttonSaveDataFurniture')" />
                         </row>
                     </rows>
                 </grid>

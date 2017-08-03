@@ -180,7 +180,7 @@ public class ProjectVM {
     public void buttonFormCreateProject(@BindingParam("object") ProjectDTO obj, @ContextParam(ContextType.VIEW) Window window) {
         Map<String, Object> params = new HashMap<>();
         params.put("projectDTO", obj);
-        CommonViewModel.navigateToWithoutDetach("/brooks2/admin/setup_project/form_create_project.zul", window, params);
+        CommonViewModel.navigateToWithoutDetach("/brooks2/admin/setup_project/create_project.zul", window, params);
     }
 
     @Command("buttonDetailProject")
@@ -188,7 +188,7 @@ public class ProjectVM {
     public void buttonDetailProject(@BindingParam("object") ProjectDTO obj, @ContextParam(ContextType.VIEW) Window window) {
         Map<String, Object> params = new HashMap<>();
         params.put("projectDTO", obj);
-        CommonViewModel.navigateToWithoutDetach("/brooks2/admin/setup_project/form_create_project.zul", window, params);
+        CommonViewModel.navigateToWithoutDetach("/brooks2/admin/setup_project/create_project.zul", window, params);
     }
 
     @Command("buttonDeleteProject")
@@ -213,15 +213,15 @@ public class ProjectVM {
     }
 
     /* =================== for create functionality =================== */
-    @Command("buttonBackFormCreateProject")
+    @Command("buttonBackCreateProject")
     @NotifyChange("projectDTO")
-    public void buttonBackFormCreateProject(@BindingParam("object") ProjectDTO obj, @ContextParam(ContextType.VIEW) Window window) {
+    public void buttonBackCreateProject(@BindingParam("object") ProjectDTO obj, @ContextParam(ContextType.VIEW) Window window) {
         window.detach();
     }
 
-    @Command("buttonSaveCreateProject")
+    @Command("buttonSaveDataProject")
     @NotifyChange("projectDTO")
-    public void buttonSaveCreateProject(@BindingParam("object") ProjectDTO obj, @ContextParam(ContextType.VIEW) Window window) {
+    public void buttonSaveDataProject(@BindingParam("object") ProjectDTO obj, @ContextParam(ContextType.VIEW) Window window) {
         projectService.SaveOrUpdate(projectDTO);
         showInformationMessagebox("Data Saved");
         BindUtils.postGlobalCommand(null, null, "refreshDataProject", null);

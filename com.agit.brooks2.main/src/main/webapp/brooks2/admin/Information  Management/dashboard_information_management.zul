@@ -20,11 +20,12 @@
                 </div>
                 <div class="form-group">
                     <label sclass="labelstyle" value="Status" />
-                    <listbox mold="select" sclass="form-control">
+                    <combobox model="@bind(vm.statuses)" selectedItem="@bind(vm.status)" 
+                              placeholder="- Status -" autodrop="true" width="20%" readonly="true">
                         <template name="model" var="items" >
-                            <listitem label="@load(items)"  value="@load(items)" />
+                            <comboitem label="@load(items)"  value="@load(items)" />
                         </template>
-                    </listbox>
+                    </combobox>
                 </div>
                 <div>
                     <a sclass="btn btn-success" width="100%" label="Search"/>

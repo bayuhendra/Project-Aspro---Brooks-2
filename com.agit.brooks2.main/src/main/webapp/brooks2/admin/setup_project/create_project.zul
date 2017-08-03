@@ -2,7 +2,7 @@
 <zk xmlns="http://www.zkoss.org/2005/zul">
     <window apply="org.zkoss.bind.BindComposer"
             viewModel="@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.ProjectVM')"
-            form="@id('fx') @load(vm.projectDTO) @save(vm.projectDTO, before='buttonSaveCreateProject')">
+            form="@id('fx') @load(vm.projectDTO) @save(vm.projectDTO, before='buttonSaveDataProject')">
         <separator spacing="5px"/>
         <groupbox width="700px" closable="true">
             <caption sclass="isi" label="Create Project" style="font-size:16pt; font-weight: bold"/>
@@ -42,8 +42,8 @@
                 
                     <rows>
                         <row>
-                            <a sclass="btn btn-success" label="Kembali" width="40%" onClick="@command('buttonBackFormCreateProject')"/>
-                            <a sclass="btn btn-success" label="Simpan" width="40%" onClick="@command('buttonSaveCreateProject')"/>
+                            <a sclass="btn btn-success" label="Kembali" width="40%" onClick="@command('buttonBackCreateProject')"/>
+                            <a sclass="btn btn-success" label="Simpan" width="40%" onClick="@command('buttonSaveDataProject')"/>
                         </row>
                     </rows>
                 </grid>
