@@ -54,7 +54,7 @@ public class FurnitureVM {
     private String nameFurniture;
     private Status status;
 
-    private List<Status> statuses = new ArrayList<>();
+    private ListModelList<Status> statuses;
     private FurnitureDTO furnitureDTO = new FurnitureDTO();
     private List<FurnitureDTO> furnitureDTOs = new ArrayList<>();
 
@@ -377,11 +377,11 @@ public class FurnitureVM {
         this.status = status;
     }
 
-    public List<Status> getStatuses() {
+    public ListModelList<Status> getStatuses() {
         return new ListModelList<>(Status.values());
     }
 
-    public void setStatuses(List<Status> statuses) {
+    public void setStatuses(ListModelList<Status> statuses) {
         this.statuses = statuses;
     }
 

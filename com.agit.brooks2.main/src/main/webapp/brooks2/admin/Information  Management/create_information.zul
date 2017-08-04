@@ -36,11 +36,12 @@
                         </row> 
                         <row>
                             <signLabel value="Status " style="font-weight: bold"/>
-                            <listbox width="40%" mold="select" sclass="form-control">
+                            <combobox model="@load(vm.statuses)" selectedItem="@bind(fx.status)" 
+                                      placeholder="- Status -" autodrop="true" width="20%" readonly="true">
                                 <template name="model" var="items" >
-                                    <listitem label="@load(items)"  value="@load(items)" />
+                                    <comboitem label="@load(items)"  value="@load(items)" />
                                 </template>
-                            </listbox>
+                            </combobox>
                         </row>                
                     </rows>
                 </grid>

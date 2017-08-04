@@ -52,6 +52,15 @@ public class HandOverHibernateRepository extends HibernateRepository implements 
         if (StringUtil.hasValue(map.get("idHandOver"))) {
             criteria.add(Restrictions.eq("idHandOver", map.get("idHandOver")));
         }
+        if (StringUtil.hasValue(map.get("startDate"))) {
+            criteria.add(Restrictions.eq("startDate", map.get("startDate")));
+        }
+        if (StringUtil.hasValue(map.get("endDate"))) {
+            criteria.add(Restrictions.eq("endDate", map.get("endDate")));
+        }
+        if (StringUtil.hasValue(map.get("status"))) {
+            criteria.add(Restrictions.eq("status", map.get("status")));
+        }
         return criteria.list();
     }
 

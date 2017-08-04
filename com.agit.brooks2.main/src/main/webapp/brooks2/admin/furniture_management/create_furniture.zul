@@ -34,7 +34,7 @@
                                     <comboitem label="@load(items)"  value="@load(items)" />
                                 </template>
                             </combobox>
-                        </row>                
+                        </row>
                     </rows>
                 </grid>
                 <groupbox>

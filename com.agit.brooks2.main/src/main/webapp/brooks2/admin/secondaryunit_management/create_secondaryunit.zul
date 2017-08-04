@@ -1,6 +1,8 @@
 <?component name="signLabel" class="com.agit.brooks2.shared.zul.SignLabel" ?>
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window >
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel = "@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.SecondaryUnitVM')"
+            form = "@id('fx') @load(vm.secondaryUnitDTO) @save(vm.secondaryUnitDTO, before='buttonSaveDataSecondaryUnit')" >
         <separator spacing="5px"/>
         <groupbox width="700px" closable="false">
             <caption sclass="isi" label="Add Secondary" style="font-size:16pt; font-weight: bold"/>
@@ -14,23 +16,24 @@
                     <rows>
                         <row>
                             <signLabel value="ID Secondary" style="font-weight: bold"/>
-                            <textbox width="20%" disabled="true" />
+                            <textbox value="@bind(fx.idSecondaryUnit)" width="20%" disabled="true" />
                         </row>
                         <row>
                             <signLabel value="Name Secondary" style="font-weight: bold"/>
-                            <textbox rows="2" width="100%" />
+                            <textbox value="@bind(fx.nameSecondaryUnit)" rows="2" width="100%" />
                         </row>
                         <row>
                             <signLabel value="Detail Secondary " style="font-weight: bold"/>
-                            <textbox rows="10" width="100%" maxlength="2000"/>
+                            <textbox value="@bind(fx.detailSecondaryUnit)" rows="10" width="100%" maxlength="2000"/>
                         </row>
                         <row>
                             <signLabel value="Status Secondary" style="font-weight: bold"/>
-                            <listbox width="40%" mold="select" sclass="form-control">
-                                <template name="model" var="items" >
-                                    <listitem label="@load(items)"  value="@load(items)" />
+                            <combobox placeholder="- Status -" autodrop="true" width="20%" readonly="true"
+                                      model="@load(vm.statuses)" selectedItem="@bind(fx.status)">
+                                <template name="model" var="item">
+                                    <comboitem label="@load(item)" value="@load(item)"/>
                                 </template>
-                            </listbox>
+                            </combobox>
                         </row>                
                     </rows>
                 </grid>
@@ -38,16 +41,14 @@
                     <caption sclass="isi" label="Upload Picture" style="font-size:10pt; font-weight: bold"/>
                     <grid style="border:0">
                         <columns>
-                            <column width="3%"></column>
                             <column width="40%"></column>
                             <column width="20%"></column>
                             <column></column>
                         </columns> 
                         <rows>
                             <row>
-                                <label value="" />
-                                <textbox class="form-control" width="100%" readonly="true" />
-                                <button sclass="btn btn-success" label="Upload" upload="true"  width="80%">
+                                <textbox value="@bind(vm.mediaNameUploadSecondaryUnit)" class="form-control" width="100%" readonly="true" />
+                                <button onUpload="@command('buttonUploadSecondaryUnit')" sclass="btn btn-success" label="Upload" upload="true"  width="80%">
                                 </button>
                             </row>
                         </rows>
@@ -62,8 +63,8 @@
                 
                     <rows>
                         <row>
-                            <a sclass="btn btn-success" label="Kembali" width="40%" />
-                            <a sclass="btn btn-success" label="Simpan" width="40%" />
+                            <a sclass="btn btn-success" label="Kembali" width="40%" onClick="@command('buttonBackCreateSecondaryUnit')"/>
+                            <a sclass="btn btn-success" label="Simpan" width="40%" onClick="@command('buttonSaveDataSecondaryUnit')"/>
                         </row>
                     </rows>
                 </grid>
