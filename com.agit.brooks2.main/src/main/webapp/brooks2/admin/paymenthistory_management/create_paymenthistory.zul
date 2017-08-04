@@ -1,6 +1,8 @@
 <?component name="signLabel" class="com.agit.brooks2.shared.zul.SignLabel" ?>
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window >
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel = "@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.PaymentHistoryVM')"
+            form = "@id('fx') @load(vm.paymentHistoryDTO) @save(vm.paymentHistoryDTO, before='buttonSaveDataPaymentHistory')" >
         <separator spacing="5px"/>
         <groupbox width="700px" closable="false">
             <caption sclass="isi" label="Add Payment History" style="font-size:16pt; font-weight: bold"/>
@@ -14,44 +16,44 @@
                     <rows>
                         <row>
                             <signLabel value="ID Payment History" style="font-weight: bold"/>
-                            <textbox width="20%" disabled="true" />
+                            <textbox width="20%" disabled="true" value="@bind(fx.idPayment)" />
                         </row>
                         <row>
                             <signLabel value="Total Payment" style="font-weight: bold"/>
-                            <textbox  width="40%" />
+                            <doublebox format="#,##0"  width="40%" value="@bind(fx.totalPayment)" />
                         </row>
                         <row>
-                            <signLabel value="Status Payment" style="font-weight: bold"/>
-                            <listbox width="40%" mold="select" sclass="form-control">
+                            <signLabel value="Status Payment History"/>
+                            <combobox model="@load(vm.statusPayments)" selectedItem="@bind(fx.statusPayment)" 
+                                      placeholder="- Status -" autodrop="true" width="20%" readonly="true">
                                 <template name="model" var="items" >
-                                    <listitem label="@load(items)"  value="@load(items)" />
+                                    <comboitem label="@load(items)"  value="@load(items)" />
                                 </template>
-                            </listbox>
-                        </row>   
+                            </combobox>
+                        </row>
                         <row>
-                            <signLabel value="Status" style="font-weight: bold"/>
-                            <listbox width="40%" mold="select" sclass="form-control">
+                            <signLabel value="Status"/>
+                            <combobox model="@load(vm.statuses)" selectedItem="@bind(fx.status)" 
+                                      placeholder="- Status -" autodrop="true" width="20%" readonly="true">
                                 <template name="model" var="items" >
-                                    <listitem label="@load(items)"  value="@load(items)" />
+                                    <comboitem label="@load(items)"  value="@load(items)" />
                                 </template>
-                            </listbox>
-                        </row>                
+                            </combobox>
+                        </row>  
                     </rows>
                 </grid>
                 <groupbox>
                     <caption sclass="isi" label="Attachment" style="font-size:10pt; font-weight: bold"/>
                     <grid style="border:0">
                         <columns>
-                            <column width="3%"></column>
                             <column width="40%"></column>
                             <column width="20%"></column>
                             <column></column>
                         </columns> 
                         <rows>
                             <row>
-                                <label value="" />
-                                <textbox class="form-control" width="100%" readonly="true" />
-                                <button sclass="btn btn-success" label="Upload" upload="true"  width="80%">
+                                <textbox value="@bind(vm.mediaNameUploadPayment)" class="form-control" width="100%" readonly="true" />
+                                <button onUpload="@command('buttonUploadPayment')" sclass="btn btn-success" label="Upload" upload="true"  width="80%">
                                 </button>
                             </row>
                         </rows>
@@ -66,8 +68,8 @@
                 
                     <rows>
                         <row>
-                            <a sclass="btn btn-success" label="Kembali" width="40%" />
-                            <a sclass="btn btn-success" label="Simpan" width="40%" />
+                            <a sclass="btn btn-success" label="Kembali" width="40%" onClick="@command('buttonBackCreatePaymentHistory')"/>
+                            <a sclass="btn btn-success" label="Simpan" width="40%" onClick="@command('buttonSaveDataPaymentHistory')"/>
                         </row>
                     </rows>
                 </grid>

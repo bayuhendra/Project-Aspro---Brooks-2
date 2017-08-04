@@ -1,5 +1,7 @@
     <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window>
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel = "@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.RentalUnitVM')"
+            form = "@id('fx') @load(vm.rentalUnitDTO) @save(vm.rentalUnitDTO, before='buttonSaveDataRentalUnit')" >
         <groupbox height="500px" closable="false" mold="3d" style="background:#f5f5f5" sclass="col-md-12 nopadding" >
             <caption sclass="isi" label="Dashboard Rental Unit Management" />
             <div sclass="col-md-3 nopadding">
@@ -9,29 +11,30 @@
                 </div>
                 <div class="form-group">
                     <label sclass="isi" value="ID Rental Unit" style="font-weight:bold"/>
-                    <textbox sclass="form-control" width="100%"/>
+                    <textbox value="@bind(vm.idRentalUnit)" sclass="form-control" width="100%"/>
                 </div>
                 <div class="form-group">
                     <label sclass="isi" value="Name Rental Unit" style="font-weight:bold"/>
-                    <textbox sclass="form-control" width="100%"/>
+                    <textbox value="@bind(vm.nameRentalUnit)" sclass="form-control" width="100%"/>
                 </div>
                 <div class="form-group">
                     <label sclass="labelstyle" value="Status" />
-                    <listbox mold="select" sclass="form-control">
+                    <combobox placeholder="- Status -" autodrop="true" width="20%" readonly="true"
+                              model="@load(vm.statuses)" selectedItem="@bind(vm.status)">
                         <template name="model" var="items" >
-                            <listitem label="@load(items)"  value="@load(items)" />
+                            <comboitem label="@load(items)"  value="@load(items)" />
                         </template>
-                    </listbox>
+                    </combobox>
                 </div>
                 <div>
-                    <a sclass="btn btn-success" width="100%" label="Search"/>
+                    <a sclass="btn btn-success" width="100%" label="Search" onClick="@command('buttonSearchRentalUnit')"/>
                     <separator/>
-                    <a sclass="btn btn-success" width="100%" label="Add Rental Unit" onClick=""/>
+                    <a sclass="btn btn-success" width="100%" label="Add Rental Unit" onClick="@command('buttonFormCreateRentalUnit')"/>
                 </div>
             </div>
             <div sclass="col-md-9 nopadding">
                 <groupbox closable="false" sclass="col-md-12">
-                    <listbox rows="11" mold="paging" emptyMessage="${labels.common.noDataFound}" >
+                    <listbox model="@bind(vm.rentalUnitDTOs)" rows="11" mold="paging" emptyMessage="${labels.common.noDataFound}" >
                         <listhead>
                             <listheader sclass="isi bold" label="ID Rental Unit" width="22%" align="center"/>
                             <listheader sclass="isi bold" label="Name Rental Unit" width="30%" align="center"/>
@@ -41,18 +44,18 @@
                         <template name="model">
                             <listitem value="${each}">
                                 <listcell>
-                                    <label width="100%" />
+                                    <label value="@bind(each.idRentalUnit)" width="100%"/>
                                 </listcell>
                                 <listcell>
-                                    <label width="100%" />
+                                    <label value="@bind(each.nameRentalUnit)" width="100%"/>
                                 </listcell>
                                 <listcell>
-                                    <label width="100%" />
+                                    <label value="@bind(each.status)" width="100%"/>
                                 </listcell>
                                 <listcell>
-                                    <a sclass="btn btn-warning " label="Detail" style="text-decoration:underline ;color:white" onClick=""></a>
+                                    <a sclass="btn btn-warning " label="Detail" style="text-decoration:underline" onClick="@command('buttonDetailRentalUnit', object=each)"></a>
                                     <separator/>
-                                    <a sclass="btn btn-danger " label="Delete" style="text-decoration:underline ;color:white" onClick=""></a>
+                                    <a sclass="btn btn-danger " label="Delete" style="text-decoration:underline" onClick="@command('buttonDeleteRentalUnit', object=each)"></a>
                                 </listcell>
                             </listitem>
                         </template>

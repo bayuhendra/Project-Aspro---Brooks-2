@@ -46,6 +46,7 @@ import org.zkoss.zul.Window;
  */
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class SecondaryUnitVM {
+
     @WireVariable
     SecondaryUnitService secondaryUnitService;
 
@@ -194,7 +195,7 @@ public class SecondaryUnitVM {
         params.put("secondaryUnitDTO", obj);
         CommonViewModel.navigateToWithoutDetach("/brooks2/admin/secondaryunit_management/create_secondaryunit.zul", window, params);
     }
-    
+
     @Command("buttonDetailSecondaryUnit")
     @NotifyChange("secondaryUnit")
     public void buttonDetailSecondaryUnit(@BindingParam("object") SecondaryUnitDTO obj, @ContextParam(ContextType.VIEW) Window window) {
@@ -231,7 +232,7 @@ public class SecondaryUnitVM {
     ) {
         window.detach();
     }
-    
+
     @Command("buttonUploadSecondaryUnit")
     @NotifyChange({"mediaUploadSecondaryUnit", "pathLocationUploadSecondaryUnit"})
     public void buttonUploadSecondaryUnit(@ContextParam(ContextType.BIND_CONTEXT) BindContext ctx) throws IOException {
@@ -273,11 +274,11 @@ public class SecondaryUnitVM {
 
         }
     }
-    
+
     @Command("buttonSaveDataSecondaryUnit")
     @NotifyChange("secondaryUnitDTO")
     public void buttonSaveDataSecondaryUnit(@BindingParam("object") SecondaryUnitDTO obj, @ContextParam(ContextType.VIEW) Window window) {
-        if(pathLocationUploadSecondaryUnit == null){
+        if (pathLocationUploadSecondaryUnit == null) {
             pathLocationUploadSecondaryUnit = secondaryUnitDTO.getUrlPhotoSecondaryUnit();
         }
         secondaryUnitDTO.setUrlPhotoSecondaryUnit(pathLocationUploadSecondaryUnit);
@@ -286,9 +287,8 @@ public class SecondaryUnitVM {
         BindUtils.postGlobalCommand(null, null, "refreshDataSecondaryUnit", null);
         window.detach();
     }
-    
-    /* ================= Getter Setter ================= */
 
+    /* ================= Getter Setter ================= */
     public String getIdSecondaryUnit() {
         return idSecondaryUnit;
     }
@@ -384,5 +384,5 @@ public class SecondaryUnitVM {
     public void setPathLocationUploadSecondaryUnit(String pathLocationUploadSecondaryUnit) {
         this.pathLocationUploadSecondaryUnit = pathLocationUploadSecondaryUnit;
     }
-    
+
 }

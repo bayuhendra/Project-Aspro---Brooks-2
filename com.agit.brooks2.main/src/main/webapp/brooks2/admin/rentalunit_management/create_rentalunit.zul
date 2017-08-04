@@ -1,9 +1,11 @@
 <?component name="signLabel" class="com.agit.brooks2.shared.zul.SignLabel" ?>
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window >
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel = "@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.RentalUnitVM')"
+            form = "@id('fx') @load(vm.rentalUnitDTO) @save(vm.rentalUnitDTO, before='buttonSaveDataRentalUnit')" >
         <separator spacing="5px"/>
         <groupbox width="700px" closable="false">
-            <caption sclass="isi" label="Add Rental Unit" style="font-size:16pt; font-weight: bold"/>
+            <caption sclass="isi" label="Add Rental" style="font-size:16pt; font-weight: bold"/>
             <groupbox>
                 <grid style="border:0">
                     <columns>
@@ -13,24 +15,25 @@
                     </columns>
                     <rows>
                         <row>
-                            <signLabel value="ID Rental Unit" style="font-weight: bold"/>
-                            <textbox width="20%" disabled="true" />
+                            <signLabel value="ID Rental" style="font-weight: bold"/>
+                            <textbox value="@bind(fx.idRentalUnit)" width="20%" disabled="true" />
                         </row>
                         <row>
-                            <signLabel value="Name Rental Unit" style="font-weight: bold"/>
-                            <textbox rows="2" width="100%" />
+                            <signLabel value="Name Rental" style="font-weight: bold"/>
+                            <textbox value="@bind(fx.nameRentalUnit)" rows="2" width="100%" />
                         </row>
                         <row>
-                            <signLabel value="Detail Rental Unit " style="font-weight: bold"/>
-                            <textbox rows="10" width="100%" maxlength="2000"/>
+                            <signLabel value="Detail Rental " style="font-weight: bold"/>
+                            <textbox value="@bind(fx.detailRentalUnit)" rows="10" width="100%" maxlength="2000"/>
                         </row>
                         <row>
-                            <signLabel value="Status Rental Unit" style="font-weight: bold"/>
-                            <listbox width="40%" mold="select" sclass="form-control">
-                                <template name="model" var="items" >
-                                    <listitem label="@load(items)"  value="@load(items)" />
+                            <signLabel value="Status Rental" style="font-weight: bold"/>
+                            <combobox placeholder="- Status -" autodrop="true" width="20%" readonly="true"
+                                      model="@load(vm.statuses)" selectedItem="@bind(fx.status)">
+                                <template name="model" var="item">
+                                    <comboitem label="@load(item)" value="@load(item)"/>
                                 </template>
-                            </listbox>
+                            </combobox>
                         </row>                
                     </rows>
                 </grid>
@@ -38,16 +41,14 @@
                     <caption sclass="isi" label="Upload Picture" style="font-size:10pt; font-weight: bold"/>
                     <grid style="border:0">
                         <columns>
-                            <column width="3%"></column>
                             <column width="40%"></column>
                             <column width="20%"></column>
                             <column></column>
                         </columns> 
                         <rows>
                             <row>
-                                <label value="" />
-                                <textbox class="form-control" width="100%" readonly="true" />
-                                <button sclass="btn btn-success" label="Upload" upload="true"  width="80%">
+                                <textbox value="@bind(vm.mediaNameUploadRentalUnit)" class="form-control" width="100%" readonly="true" />
+                                <button onUpload="@command('buttonUploadRentalUnit')" sclass="btn btn-success" label="Upload" upload="true"  width="80%">
                                 </button>
                             </row>
                         </rows>
@@ -62,8 +63,8 @@
                 
                     <rows>
                         <row>
-                            <a sclass="btn btn-success" label="Kembali" width="40%" />
-                            <a sclass="btn btn-success" label="Simpan" width="40%" />
+                            <a sclass="btn btn-success" label="Kembali" width="40%" onClick="@command('buttonBackCreateRentalUnit')"/>
+                            <a sclass="btn btn-success" label="Simpan" width="40%" onClick="@command('buttonSaveDataRentalUnit')"/>
                         </row>
                     </rows>
                 </grid>
