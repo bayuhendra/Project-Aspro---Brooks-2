@@ -46,7 +46,7 @@ import org.zkoss.zul.Window;
  */
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class FurnitureVM {
-    
+
     @WireVariable
     FurnitureService furnitureService;
 
@@ -195,7 +195,7 @@ public class FurnitureVM {
         params.put("furnitureDTO", obj);
         CommonViewModel.navigateToWithoutDetach("/brooks2/admin/furniture_management/create_furniture.zul", window, params);
     }
-    
+
     @Command("buttonDetailFurniture")
     @NotifyChange("furniture")
     public void buttonDetailFurniture(@BindingParam("object") FurnitureDTO obj, @ContextParam(ContextType.VIEW) Window window) {
@@ -286,6 +286,13 @@ public class FurnitureVM {
         showInformationMessagebox("Data Saved");
         BindUtils.postGlobalCommand(null, null, "refreshDataFurniture", null);
         window.detach();
+    }
+
+    @Command("buttonPopUp")
+    @NotifyChange("furnitureDTO")
+    public void buttonPopUp(@ContextParam(ContextType.VIEW) Window window) {
+        Map<String, Object> params = new HashMap<>();
+        CommonViewModel.navigateToWithoutDetach("/brooks2/customer/furniture/dashboard_furniture.zul", window, params);
     }
     /* ================= Getter Setter ================= */
 

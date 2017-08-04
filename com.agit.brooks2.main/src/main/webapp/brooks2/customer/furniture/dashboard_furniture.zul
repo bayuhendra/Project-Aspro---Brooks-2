@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window viewModel="@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.FurnitureVM')"
+            form="@id('fx') @load(vm.furnitureDTO) @save(vm.furnitureDTO, before='buttonSaveDataInformations')">
+        <div sclass="col-md-9 nopadding" width="100%">
+            <groupbox sclass="col-md-12" width="900px">
+                <hlayout>
+                    <textbox placeholder="Paket Furniture"/>
+                    <textbox placeholder="Name Furniture"/>
+                    <button label="Search" onClick=""/>
+                </hlayout>
+                <columnlayout>
+                    <columnchildren>
+                        <groupbox  closable="false">
+                            <caption sclass="isi" label="Item" />
+                            <grid >
+                                <columns >
+                                    <column></column>
+                                    <column></column>
+                                    <column></column>
+                                    <column></column>
+                                </columns>
+                                <rows>
+                                    <row align="center">
+                                        <image src="/images/furniture1.jpg" ></image> 
+                                        <image src="/images/furniture2.jpg"></image>
+                                        <image src="/images/furniture3.jpg"></image>
+                                        <image src="/images/furniture4.jpg"></image>
+                                    </row>
+                                    <row align="center">
+                                        <a onClick="@command('buttonPopUp')" label="Paket 1" style="font-weight:bold;color:#65001e"/>
+                                        <a href="http://localhost:9091/brooks2/brooks2/customer/Furniture/popup_furniture.zul" label="Paket 2" style="font-weight:bold;color:#65001e"/>
+                                        <a href="http://localhost:9091/brooks2/brooks2/customer/Furniture/popup_furniture.zul" label="Paket 3" style="font-weight:bold;color:#65001e"/>
+                                        <a href="http://localhost:9091/brooks2/brooks2/customer/Furniture/popup_furniture.zul" label="Paket 4" style="font-weight:bold;color:#65001e"/>
+                                    </row>
+                                    <row align="center">
+                                        <image src="/images/furniture5.jpg" ></image> 
+                                        <image src="/images/furniture6.jpg"></image>
+                                        <image src="/images/furniture7.jpg"></image>
+                                        <image src="/images/furniture8.jpg"></image>
+                                    </row>
+                                    <row align="center">
+                                        <a href="http://localhost:9091/brooks2/brooks2/customer/Furniture/popup_furniture.zul" label="Paket 5" style="font-weight:bold;color:#65001e"/>
+                                        <a href="http://localhost:9091/brooks2/brooks2/customer/Furniture/popup_furniture.zul" label="Paket 6" style="font-weight:bold;color:#65001e"/>
+                                        <a href="http://localhost:9091/brooks2/brooks2/customer/Furniture/popup_furniture.zul" label="Paket 7" style="font-weight:bold;color:#65001e"/>
+                                        <a href="http://localhost:9091/brooks2/brooks2/customer/Furniture/popup_furniture.zul" label="Paket 8" style="font-weight:bold;color:#65001e"/>
+                                    </row>
+                                    <row align="center">
+                                        <image src="/images/furniture9.jpg" ></image> 
+                                        <image src="/images/furniture10.jpg"></image>
+                                        <image src="/images/furniture11.jpg"></image>
+                                        <image src="/images/furniture12.jpg"></image>
+                                    </row>
+                                    <row align="center">
+                                        <a href="http://localhost:9091/brooks2/brooks2/customer/Furniture/popup_furniture.zul" label="Paket 9" style="font-weight:bold;color:#65001e"/>
+                                        <a href="http://localhost:9091/brooks2/brooks2/customer/Furniture/popup_furniture.zul" label="Paket 10" style="font-weight:bold;color:#65001e"/>
+                                        <a href="http://localhost:9091/brooks2/brooks2/customer/Furniture/popup_furniture.zul" label="Paket 11" style="font-weight:bold;color:#65001e"/>
+                                        <a href="http://localhost:9091/brooks2/brooks2/customer/Furniture/popup_furniture.zul" label="Paket 12" style="font-weight:bold;color:#65001e"/>
+                                    </row>
+                                </rows>
+                            </grid> 
+                        </groupbox>
+                    </columnchildren>
+                </columnlayout>
+            </groupbox>
+        </div>
+    </window>
+</zk>
