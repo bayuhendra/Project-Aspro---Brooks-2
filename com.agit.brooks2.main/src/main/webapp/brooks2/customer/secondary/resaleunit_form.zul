@@ -1,0 +1,113 @@
+<?component name="signLabel" class="com.agit.brooks2.shared.zul.SignLabel" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window apply="org.zkoss.bind.BindComposer">
+        <separator spacing="5px"/>
+        <groupbox width="700px" closable="true">
+            <caption sclass="isi" label="Resale Unit Form" style="font-size:16pt; font-weight: bold"/>
+            <groupbox>
+                <grid style="border:0">
+                    <columns>
+                        <column width="30%"></column>
+                        <column width="70%"></column>
+                    </columns>
+                    <rows>
+                        <row>
+                            <signLabel value="Nama Pemilik Resale Unit" style="font-weight: bold"/>
+                            <textbox width="80%"/>
+                        </row>
+                        <row>
+                            <signLabel value="PPJB (Termasuk Perubahan) Nomor dan Tanggal" style="font-weight: bold"/>
+                            <textbox width="80%"/>
+                        </row>
+                        <row>
+                            <signLabel value="Nomor Unit " style="font-weight: bold"/>
+                            <textbox width="80%" />
+                        </row>
+                        <row>
+                            <signLabel value="Tipe Unit" style="font-weight: bold"/>
+                            <textbox width="80%"></textbox>
+                        </row> 
+                        <row>
+                            <signLabel value="Luas" style="font-weight: bold"/>
+                            <textbox width="80%"></textbox>
+                        </row>  
+                        <row>
+                            <signLabel value="Harga Pengikatan" style="font-weight: bold"/>
+                            <textbox width="80%"></textbox>
+                        </row>  
+                        <row>
+                            <signLabel value="Email" style="font-weight: bold"/>
+                            <textbox width="80%"></textbox>
+                        </row> 
+                        <row>
+                            <signLabel value="Nomor Telepon" style="font-weight: bold"/>
+                            <textbox width="80%"></textbox>
+                        </row>
+                        <row>
+                            <signLabel value="Harga Penawaran" style="font-weight: bold"/>
+                            <textbox width="80%"></textbox>
+                        </row>
+                        <row>
+                            <signLabel value="Cara Pembayaran" style="font-weight: bold"/>
+                            <checkbox label="Tidak Berubah, Sesuai PPJB"></checkbox>
+                        </row>
+                        <row>
+                            <separator></separator>
+                            
+                            <checkbox label="Berubah, Sesuai Amandemen PPJB"></checkbox>
+                        </row>                
+                    </rows>
+                </grid>
+                <groupbox>
+                    <caption label="Syarat Dan Ketentuan" style="font-size:10pt; font-weight: bold"/>
+                    <label sclass="isi" value="1) Program ini berlaku untuk pemilik resale unit Anandamaya Resisdences yang tidak memiliki tunggakan pembayaran" style="color:red"/>
+                    <separator></separator>
+                    <label sclass="isi" value="2) Masing-masing resale unit harus memakai 1 (satu) resale unit form" style="color:red"/>
+                    <separator></separator>
+                    <label sclass="isi" value="3) Developer berhak untuk menetapkan harga indikasi, yang dari waktu ditetapkan berdasarkan pertimbangan
+                    developer sendiri, yang pada saat ini ditetapkan tidak boleh lebih rendah dari 10% dari harga pasar (yang diputusakan oleh Developer). Develeoper berhak menolak untuk menolak permintaan harga penawaran yang tidak sesuai memenuhi etentuan tersebut" style="color:red"/>
+                    <separator></separator>
+                    <label sclass="isi" value="4) Developer Tidak Menjamin Menjamin Resale Unit akan terjual" style="color:red"/>
+                    <separator></separator>
+                    <label sclass="isi" value="5) Pemilik Resale Unit wajib membayar kepada developer biaya-biaya atas penjualan 
+                    Resale Unit sebesar 2,5% dari harga pengikatan, sebagaimana diatur dalam PPJB, beserta perubahannya, Biaya tersebut sudah termasuk komisi agen penjualan yang menjadi kewajiban dari pemilik Resale Unit kepada Agen penjulan. Pembayaran tersebut akan tunduk kepada ketentuan pajak yang berlaku." style="color:red"/>
+                    <separator></separator>
+                    <label sclass="isi" value="6) Biaya-biaya tersebut wajib dibayarkan melalui rekening sebagai berikut: " style="color:red"/>
+                    <separator></separator>
+                    <label sclass="isi" value="   Bank                : Permata" style="color:red"/>
+                    <separator></separator>
+                    <label sclass="isi" value="   Cabang              : Atrium Setiabudi" style="color:red"/>
+                    <separator></separator>
+                    <label sclass="isi" value="   Atas Nama           : PT Brahmayasa Bahtera" style="color:red"/>
+                    <separator></separator>
+                    <label sclass="isi" value="   Rekening Nomor      : Permata" style="color:red"/>
+                    <separator></separator>
+                    <label sclass="isi" value="7) Perubahan harga penawaran penjulan ataupun pembatalan resale unit hanya dapat dilakukan dengan persetujuan tertulis dari deveeloper" style="color:red"/>
+                    <separator></separator>
+                    <label sclass="isi" value="8) Pemilik Resale unit menyatakan menjamin kepada developer bahwa pemilik resale unit teah memperoleh persetujuan-persetujuan yang diperlakukan
+                    (apabila dipersyaratkan) untuk diberlakukan sesuai dengan ketentuan-ketentuan dari form ini. form ini diatur dan ditafsirkan berdasarkan hukum negara republik indonesia setiap
+                    perselisihan atau perbedaan pendapat (perselisihan yang timbul akan diselesaikan terlebih dahulu secara musyawarah untuk mencapai mufakat. Apabila perselisihan tidak dapat diselesaikan dalam jangka waktu 45 hari kalender
+                    setelah salah satu pihak memberitahukan pihak lainnya tentang perselisihan tersebut. maka perselisihan tersebut akan disselesaikan di pengadilan negeri Jakarta Pusat dan telah memiliki domisili hukum yang tetap dan tidak berubah dikantor
+                    Panitera Pengadilan Negeri Jakarta Pusat.)" style="color:red"/>
+                    <separator></separator>
+                    <label sclass="isi" value="9) Definisi yang dipakai form mempunyai arti sebagaimana di definisikan dalam PPJB, kecuali secara tegas didefinisikan/diatur lain dalam form." style="color:red"/>
+                    <separator></separator>
+                </groupbox>
+                <grid style="border:0">
+                
+                    <columns>
+                        <column align="right" width="50%"/>
+                        <column align="left" width="50%"/>
+                    </columns>
+                
+                    <rows>
+                        <row>
+                            <a sclass="btn btn-success" label="Kembali" width="40%" onClick="@command('buttonBackCreateInformation')"/>
+                            <a sclass="btn btn-success" label="Simpan" width="40%" onClick="@command('buttonSaveDataInformations')"/>
+                        </row>
+                    </rows>
+                </grid>
+            </groupbox>
+        </groupbox>
+    </window>
+</zk>
