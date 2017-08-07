@@ -20,7 +20,7 @@
                         </row>
                         <row>
                             <signLabel value="Name Project" style="font-weight: bold"/>
-                            <textbox  width="100%" value="@bind(fx.nameProject)"/>
+                            <textbox  width="50%" rows="2" value="@bind(fx.nameProject)"/>
                         </row>
                         <row>
                             <signLabel value="Status Project"/>

@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label sclass="labelstyle" value="Status" />
                     <combobox model="@load(vm.statuses)" selectedItem="@bind(vm.status)" 
-                              placeholder="- Status -" autodrop="true" width="20%" readonly="true">
+                              placeholder="- Status -" autodrop="true" width="50%" readonly="true">
                         <template name="model" var="items" >
                             <comboitem label="@load(items)"  value="@load(items)" />
                         </template>

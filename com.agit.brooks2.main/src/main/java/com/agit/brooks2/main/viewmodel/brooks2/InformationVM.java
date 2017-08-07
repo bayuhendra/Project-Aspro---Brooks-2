@@ -1,9 +1,12 @@
 package com.agit.brooks2.main.viewmodel.brooks2;
 
 import com.agit.brooks2.common.application.InformationsService;
+import com.agit.brooks2.common.application.ProjectService;
 import com.agit.brooks2.common.dto.masterdata.InformationsDTO;
 import com.agit.brooks2.common.dto.masterdata.InformationsDTOBuilder;
+import com.agit.brooks2.common.dto.masterdata.ProjectDTO;
 import com.agit.brooks2.common.security.SecurityUtil;
+import com.agit.brooks2.shared.status.Status;
 import com.agit.brooks2.shared.zul.CommonViewModel;
 import static com.agit.brooks2.shared.zul.CommonViewModel.showInformationMessagebox;
 import com.agit.brooks2.shared.zul.PageNavigation;
@@ -48,10 +51,18 @@ public class InformationVM {
     @WireVariable
     InformationsService informationsService;
 
+    @WireVariable
+    ProjectService projectService;
+
     private String idNews;
 
     private InformationsDTO informationsDTO = new InformationsDTO();
     private List<InformationsDTO> informationsDTOs = new ArrayList<>();
+
+    private ListModelList<Status> statuses;
+    private Status status;
+
+    private List<ProjectDTO> projects = new ArrayList<ProjectDTO>();
 
     private PageNavigation previous;
     private boolean checked;
@@ -82,6 +93,11 @@ public class InformationVM {
         informationsDTOs = informationsService.findAll();
         if (informationsDTOs.isEmpty()) {
             informationsDTOs = Collections.emptyList();
+        }
+
+        projects = projectService.findAll();
+        if (projects.isEmpty()) {
+            projects = Collections.emptyList();
         }
 
     }
@@ -377,6 +393,30 @@ public class InformationVM {
 
     public void setPathLocationUploadPicInformations(String pathLocationUploadPicInformations) {
         this.pathLocationUploadPicInformations = pathLocationUploadPicInformations;
+    }
+
+    public ListModelList<Status> getStatuses() {
+        return new ListModelList<>(Status.values());
+    }
+
+    public void setStatuses(ListModelList<Status> statuses) {
+        this.statuses = statuses;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public List<ProjectDTO> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<ProjectDTO> projects) {
+        this.projects = projects;
     }
 
 }

@@ -210,17 +210,17 @@ public class FurnitureVM {
         furnitureDTO = (FurnitureDTO) obj;
         Messagebox.show("Are you sure to delete this data?", "Konfirmasi", Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION,
                 new org.zkoss.zk.ui.event.EventListener() {
-                    @Override
-                    public void onEvent(Event evt) throws InterruptedException {
-                        if (evt.getName().equals("onOK")) {
-                            furnitureService.deleteData(furnitureDTO);
-                            showInformationMessagebox("Data Successfully Deleted");
-                            BindUtils.postGlobalCommand(null, null, "refreshDataFurniture", null);
-                        } else {
-                            System.out.println("Operation Canceled !");
-                        }
-                    }
+            @Override
+            public void onEvent(Event evt) throws InterruptedException {
+                if (evt.getName().equals("onOK")) {
+                    furnitureService.deleteData(furnitureDTO);
+                    showInformationMessagebox("Data Successfully Deleted");
+                    BindUtils.postGlobalCommand(null, null, "refreshDataFurniture", null);
+                } else {
+                    System.out.println("Operation Canceled !");
                 }
+            }
+        }
         );
 
     }
@@ -292,10 +292,10 @@ public class FurnitureVM {
     @NotifyChange("furnitureDTO")
     public void buttonPopUp(@ContextParam(ContextType.VIEW) Window window) {
         Map<String, Object> params = new HashMap<>();
-        CommonViewModel.navigateToWithoutDetach("/brooks2/customer/furniture/dashboard_furniture.zul", window, params);
+        showInformationMessagebox("Are you sure you chose this package?");
     }
-    /* ================= Getter Setter ================= */
 
+    /* ================= Getter Setter ================= */
     public FurnitureDTO getFurnitureDTO() {
         return furnitureDTO;
     }
