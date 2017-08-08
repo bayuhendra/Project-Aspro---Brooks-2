@@ -1,6 +1,8 @@
 <?component name="signLabel" class="com.agit.brooks2.shared.zul.SignLabel" ?>
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window apply="org.zkoss.bind.BindComposer">
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel = "@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.SecondaryUnitVM')"
+            form = "@id('fx') @load(vm.secondaryUnitDTO) @save(vm.secondaryUnitDTO, before='buttonSaveDataSecondaryUnit')">
         <separator spacing="5px"/>
         <groupbox width="700px" closable="true">
             <caption sclass="isi" label="Customer Nomination Form" style="font-size:16pt; font-weight: bold"/>
@@ -13,47 +15,56 @@
                     <rows>
                         <row>
                             <signLabel value="Tanggal Calon Pembeli" style="font-weight: bold"/>
-                            <datebox width="80%"/>
+                            <textbox width="80%" readonly="true" value="2017-07-31 13:30:39.576"/>
                         </row>
                         <row>
                             <signLabel value="Nama" style="font-weight: bold"/>
-                            <textbox width="80%"/>
+                            <textbox width="80%" readonly="true" value="Bayu Hedra Setiawan"/>
                         </row>
                         <row>
                             <signLabel value="Alamat KTP " style="font-weight: bold"/>
-                            <textbox rows="3" width="80%" />
+                            <textbox rows="3" width="80%" value="Desa Sendang Rejo RT:02 RW:02 Kecamatan Tayu Kabupate Pati" readonly="true"/>
                         </row>
                         <row>
                             <signLabel value="Alamat Korespondensi" style="font-weight: bold"/>
-                            <textbox rows="3" width="80%"></textbox>
+                            <textbox rows="3" width="80%" value="Desa Sendang Rejo RT:02 RW:02 Kecamatan Tayu Kabupate Pati" readonly="true"></textbox>
                         </row> 
                         <row>
                             <signLabel value="No KTP" style="font-weight: bold"/>
-                            <textbox width="80%"></textbox>
+                            <textbox width="80%" value="3318191810930001" readonly="true"></textbox>
                         </row>  
                         <row>
                             <signLabel value="NPWP" style="font-weight: bold"/>
-                            <textbox width="80%"></textbox>
+                            <textbox width="80%" readonly="true" value="341910944491"></textbox>
                         </row>  
                         <row>
                             <signLabel value="Email" style="font-weight: bold"/>
-                            <textbox width="80%"></textbox>
+                            <textbox width="80%" readonly="true" value="Bayu.setiawan@ag-it.com"></textbox>
                         </row> 
                         <row>
-                            <signLabel value="Telepon Rumah" style="font-weight: bold"/>
-                            <textbox width="80%"></textbox>
+                            <label value="Telepon Rumah" />
+                            <textbox width="80%" value="" readonly="true"></textbox>
                         </row>
                         <row>
-                            <signLabel value="Telepon Kantor dan Fax" style="font-weight: bold"/>
-                            <textbox width="80%"></textbox>
+                            <label value="Telepon Kantor" />
+                            <textbox width="80%" value="021215721177" readonly="true"></textbox>
+                        </row>
+                        <row>
+                            <label value="No Fax" />
+                            <textbox width="80%" value="0215721170" readonly="true"></textbox>
                         </row>
                         <row>
                             <signLabel value="Handphone" style="font-weight: bold"/>
-                            <textbox width="80%"></textbox>
+                            <textbox width="80%" value="087835282325" readonly="true"></textbox>
                         </row>   
                         <row>
                             <signLabel value="Harga Penawaran" style="font-weight: bold"/>
-                            <textbox width="80%"></textbox>
+                            <combobox placeholder="- Harga Penawaran -" autodrop="true" width="80%" readonly="true"
+                                      model="@load(vm.listHarga)" >
+                                <template name="model" var="items" >
+                                    <comboitem label="@load(items)"  value="@load(items)" />
+                                </template>
+                            </combobox>
                         </row>    
                         <row>
                             <signLabel value="Cara Pembayaran" style="font-weight: bold"/>
@@ -78,15 +89,15 @@
                         <rows>
                             <row>
                                 <label value="Nomor Unit"></label>
-                                <textbox ></textbox>
+                                <textbox value="A11" readonly="true"></textbox>
                             </row>
                             <row>
                                 <label value="Tipe Unit"></label>
-                                <textbox ></textbox>
+                                <textbox value="66" readonly="true"></textbox>
                             </row>
                             <row>
                                 <label value="Luas"></label>
-                                <textbox ></textbox>
+                                <textbox value="243" readonly="true "></textbox>
                             </row>
                         </rows>
                     </grid>
@@ -103,13 +114,13 @@
                         <rows>
                             <row>
                                 <label value="KTP" />
-                                <textbox class="form-control" width="100%" readonly="true" value="@bind(vm.mediaNameUploadPicInformations)"/>
+                                <textbox class="form-control" width="100%" readonly="true" />
                                 <button sclass="btn btn-success" label="Upload" upload="true" onUpload="@command('buttonUploadPicInformations')" width="80%">
                                 </button>
                             </row>
                             <row>
                                 <label value="NPWP" />
-                                <textbox class="form-control" width="100%" readonly="true" value="@bind(vm.mediaNameUploadPicInformations)"/>
+                                <textbox class="form-control" width="100%" readonly="true" />
                                 <button sclass="btn btn-success" label="Upload" upload="true" onUpload="@command('buttonUploadPicInformations')" width="80%">
                                 </button>
                             </row>

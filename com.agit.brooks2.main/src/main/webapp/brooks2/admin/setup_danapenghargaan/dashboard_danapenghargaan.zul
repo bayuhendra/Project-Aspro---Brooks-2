@@ -1,0 +1,69 @@
+    <zk xmlns="http://www.zkoss.org/2005/zul">
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel = "@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.EstimatedPriceVM')"
+            form = "@id('fx') @load(vm.hargaPenawaranDTO) @save(vm.hargaPenawaranDTO, before='buttonSaveDataProject')">
+        <groupbox height="500px" closable="false" mold="3d" style="background:#f5f5f5" sclass="col-md-12 nopadding" >
+            <caption sclass="isi" label="Dashboard Setup Estimated Price" />
+            <div sclass="col-md-3 nopadding">
+                <div class="form-group" style="font-style:bold;">
+                    <label sclass="isi" value="Search Filter :" />
+                    <separator bar="true"/>
+                </div>
+                <div class="form-group">
+                    <label sclass="isi" value="Estimated Price ID" style="font-weight:bold"/>
+                    <textbox value="@bind(vm.hargaPenawaranID)" sclass="form-control" width="100%"/>
+                </div>
+                <div class="form-group">
+                    <label sclass="isi" value="Estimated Price" style="font-weight:bold"/>
+                    <textbox value="@bind(vm.harga)" sclass="form-control" width="100%"/>
+                </div>
+                <div class="form-group">
+                    <label sclass="labelstyle" value="Status" />
+                    <combobox  model="@load(vm.statuses)" selectedItem="@bind(vm.status)" 
+                               placeholder="- Status -" autodrop="true" width="20%" readonly="true">
+                        <template name="model" var="items" >
+                            <comboitem label="@load(items)"  value="@load(items)" />
+                        </template>
+                    </combobox>
+                </div>
+                <div>
+                    <a sclass="btn btn-success" width="100%" label="Search" onClick="@command('buttonSearchHargaPenawaran')"/>
+                    <separator/>
+                    <a sclass="btn btn-success" width="100%" label="Add Estimated Price" onClick="@command('buttonFormCreateHargaPenawaran')"/>
+                </div>
+            </div>
+            <div sclass="col-md-9 nopadding">
+                <groupbox closable="false" sclass="col-md-12">
+                    <listbox rows="11" mold="paging" emptyMessage="${labels.common.noDataFound}" 
+                             model="@bind(vm.hargaPenawaranDTOs)">
+                        <listhead>
+                            <listheader sclass="isi bold" label="Estmated Price ID" width="22%" align="center"/>
+                            <listheader sclass="isi bold" label="Estimated Price" width="40%" align="center"/>
+                            <listheader sclass="isi bold" label="Status" width="20%" align="center"/>  
+                            <listheader sclass="isi bold" label="Action" width="20%" align="center"/>                                           
+                        </listhead>
+                        <template name="model">
+                            <listitem value="${each}">
+                                <listcell>
+                                    <label width="100%" value="@bind(each.hargaPenawaranID)"/>
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" value="@bind(each.harga)"/>
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" value="@bind(each.status)"/>
+                                </listcell>
+                                <listcell>
+                                    <a sclass="btn btn-warning " label="Detail" style="text-decoration:underline ;" onClick="@command('buttonFormCreateHargaPenawaran', object=each)"></a>
+                                    <separator/>
+                                    <a sclass="btn btn-danger " label="Delete" style="text-decoration:underline ;" onClick="@command('buttonDelete', object=each)"></a>
+                                </listcell>
+                            </listitem>
+                        </template>
+                    </listbox>
+                </groupbox>
+            </div>            
+            <separator height="30px"/>
+        </groupbox>
+    </window>
+</zk>

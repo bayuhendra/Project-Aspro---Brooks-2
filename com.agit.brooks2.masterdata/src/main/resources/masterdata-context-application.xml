@@ -22,4 +22,10 @@
         <property name="furnitureRepository" ref="furnitureRepository"/>
         <property name="furnitureDTOAssembler" ref="furnitureDTOAssembler"/>
     </bean>
+    
+    <bean id="hargaPenawaranDTOAssembler" class="com.agit.brooks2.masterdata.interfaces.web.facade.dto.assembler.HargaPenawaranDTOAssembler"></bean>
+    <bean id="hargaPenawaranService" class="com.agit.brooks2.masterdata.application.impl.HargaPenawaranServiceImpl">
+        <property name="hargaPenawaranRepository" ref="hargaPenawaranRepository"/>
+        <property name="hargaPenawaranDTOAssembler" ref="hargaPenawaranDTOAssembler"/>
+    </bean>
 </beans>

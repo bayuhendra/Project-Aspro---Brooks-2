@@ -1,8 +1,10 @@
 package com.agit.brooks2.main.viewmodel.brooks2;
 
+import com.agit.brooks2.common.application.HargaPenawaranService;
 import com.agit.brooks2.common.application.SecondaryUnitService;
 import com.agit.brooks2.common.dto.core.SecondaryUnitDTO;
 import com.agit.brooks2.common.dto.core.SecondaryUnitDTOBuilder;
+import com.agit.brooks2.common.dto.masterdata.HargaPenawaranDTO;
 import com.agit.brooks2.common.security.SecurityUtil;
 import com.agit.brooks2.shared.status.Status;
 import com.agit.brooks2.shared.zul.CommonViewModel;
@@ -50,13 +52,20 @@ public class SecondaryUnitVM {
     @WireVariable
     SecondaryUnitService secondaryUnitService;
 
+    @WireVariable
+    HargaPenawaranService hargaPenawaranService;
+
     private String idSecondaryUnit;
     private String nameSecondaryUnit;
     private Status status;
+    private String hargaSelected;
 
     private ListModelList<Status> statuses;
     private SecondaryUnitDTO secondaryUnitDTO = new SecondaryUnitDTO();
     private List<SecondaryUnitDTO> secondaryUnitDTOs = new ArrayList<>();
+    private List<HargaPenawaranDTO> hargaPenawaranDTOs = new ArrayList<>();
+
+    private List<String> listHarga = new ArrayList<>();
 
     private PageNavigation previous;
     private int pageSize = 10;
@@ -83,6 +92,10 @@ public class SecondaryUnitVM {
         secondaryUnitDTOs = secondaryUnitService.findAll();
         if (secondaryUnitDTOs.isEmpty()) {
             secondaryUnitDTOs = Collections.emptyList();
+        }
+        hargaPenawaranDTOs = hargaPenawaranService.findAll();
+        for (HargaPenawaranDTO h : hargaPenawaranDTOs) {
+            listHarga.add(h.getHarga());
         }
     }
 
@@ -383,6 +396,30 @@ public class SecondaryUnitVM {
 
     public void setPathLocationUploadSecondaryUnit(String pathLocationUploadSecondaryUnit) {
         this.pathLocationUploadSecondaryUnit = pathLocationUploadSecondaryUnit;
+    }
+
+    public List<HargaPenawaranDTO> getHargaPenawaranDTOs() {
+        return hargaPenawaranDTOs;
+    }
+
+    public void setHargaPenawaranDTOs(List<HargaPenawaranDTO> hargaPenawaranDTOs) {
+        this.hargaPenawaranDTOs = hargaPenawaranDTOs;
+    }
+
+    public List<String> getListHarga() {
+        return listHarga;
+    }
+
+    public void setListHarga(List<String> listHarga) {
+        this.listHarga = listHarga;
+    }
+
+    public String getHargaSelected() {
+        return hargaSelected;
+    }
+
+    public void setHargaSelected(String hargaSelected) {
+        this.hargaSelected = hargaSelected;
     }
 
 }
