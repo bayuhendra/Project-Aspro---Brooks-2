@@ -63,6 +63,7 @@ public class InformationVM {
     private Status status;
 
     private List<ProjectDTO> projects = new ArrayList<ProjectDTO>();
+    private List<String> listProjects = new ArrayList<>();
 
     private PageNavigation previous;
     private boolean checked;
@@ -98,6 +99,11 @@ public class InformationVM {
         projects = projectService.findAll();
         if (projects.isEmpty()) {
             projects = Collections.emptyList();
+        }
+
+        projects = projectService.findAll();
+        for (ProjectDTO j : projects) {
+            listProjects.add(j.getNameProject());
         }
 
     }
@@ -171,6 +177,20 @@ public class InformationVM {
         }
 
         return s + String.format("%0" + count + "d", max + 1);
+    }
+
+    @Command("buttonClosePreview")
+    @NotifyChange("informationsDTOs")
+    public void buttonClosePreview(@BindingParam("object") InformationsDTO obj, @ContextParam(ContextType.VIEW) Window window) {
+        window.detach();
+    }
+
+    @Command("buttonKlikPreview")
+    @NotifyChange({"src", "informationsDTOs", "user"})
+    public void buttonKlikPreviewCV(@BindingParam("object") InformationsDTO obj, @ContextParam(ContextType.VIEW) Window window) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("informationsDTO", obj);
+        CommonViewModel.navigateToWithoutDetach("/brooks2/admin/Information  Management/preview_information.zul", window, params);
     }
 
     @Command("buttonUploadPicInformations")
@@ -417,6 +437,14 @@ public class InformationVM {
 
     public void setProjects(List<ProjectDTO> projects) {
         this.projects = projects;
+    }
+
+    public List<String> getListProjects() {
+        return listProjects;
+    }
+
+    public void setListProjects(List<String> listProjects) {
+        this.listProjects = listProjects;
     }
 
 }

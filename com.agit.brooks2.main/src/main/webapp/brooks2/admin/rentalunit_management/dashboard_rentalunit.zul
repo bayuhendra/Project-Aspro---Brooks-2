@@ -2,7 +2,7 @@
     <window apply="org.zkoss.bind.BindComposer"
             viewModel = "@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.RentalUnitVM')"
             form = "@id('fx') @load(vm.rentalUnitDTO) @save(vm.rentalUnitDTO, before='buttonSaveDataRentalUnit')" >
-        <groupbox height="500px" closable="false" mold="3d" style="background:#f5f5f5" sclass="col-md-12 nopadding" >
+        <groupbox height="473px" closable="false" mold="3d" style="background:#f5f5f5" sclass="col-md-12 nopadding" >
             <caption sclass="isi" label="Dashboard Rental Unit Management" />
             <div sclass="col-md-3 nopadding">
                 <div class="form-group" style="font-style:bold;">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                     <label sclass="labelstyle" value="Status" />
-                    <combobox placeholder="- Status -" autodrop="true" width="20%" readonly="true"
+                    <combobox placeholder="- Status -" autodrop="true" width="50%" readonly="true"
                               model="@load(vm.statuses)" selectedItem="@bind(vm.status)">
                         <template name="model" var="items" >
                             <comboitem label="@load(items)"  value="@load(items)" />

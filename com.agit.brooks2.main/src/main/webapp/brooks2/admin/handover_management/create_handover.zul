@@ -1,8 +1,8 @@
 <?component name="signLabel" class="com.agit.brooks2.shared.zul.SignLabel" ?>
 <zk xmlns="http://www.zkoss.org/2005/zul">
     <window apply="org.zkoss.bind.BindComposer"
-                viewModel = "@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.HandOverVM')"
-                form = "@id('fx') @load(vm.handOverDTO) @save(vm.handOverDTO, before='buttonSaveDataHandOver')" >
+            viewModel = "@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.HandOverVM')"
+            form = "@id('fx') @load(vm.handOverDTO) @save(vm.handOverDTO, before='buttonSaveDataHandOver')" >
         <separator spacing="5px"/>
         <groupbox width="700px" closable="false">
             <caption sclass="isi" label="Add Hand Over" style="font-size:16pt; font-weight: bold"/>
@@ -20,19 +20,19 @@
                         </row>
                         <row>
                             <signLabel value="Start Time" style="font-weight: bold"/>
-                            <datebox value="@bind(fx.startTime)" width="50%" />
+                            <timebox format="medium" value="@bind(fx.startTime)" width="50%" />
                         </row>
                         <row>
                             <signLabel value="End Time " style="font-weight: bold"/>
-                            <datebox value="@bind(fx.endTime)" width="50%" maxlength="2000"/>
+                            <timebox format="medium" value="@bind(fx.endTime)" width="50%" maxlength="2000"/>
                         </row>
                         <row>
                             <signLabel value="Start Date" style="font-weight: bold"/>
-                            <datebox value="@bind(fx.startDate)" width="50%" />
+                            <datebox readonly="true" value="@bind(fx.startDate)" width="50%" />
                         </row>
                         <row>
                             <signLabel value="End Date " style="font-weight: bold"/>
-                            <datebox value="@bind(fx.endDate)" width="50%" maxlength="2000"/>
+                            <datebox readonly="true" value="@bind(fx.endDate)" width="50%" maxlength="2000"/>
                         </row>
                         <row>
                             <signLabel value="Status Hand Over" style="font-weight: bold"/>

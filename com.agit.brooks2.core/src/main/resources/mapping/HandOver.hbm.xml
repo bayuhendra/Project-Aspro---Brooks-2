@@ -7,10 +7,10 @@
             <generator class="org.hibernate.id.IdentityGenerator"/>
         </id>
         <property column="idHandOver" name="idHandOver" not-null="false"/>
-        <property column="startTime" name="startTime" not-null="false"/>
-        <property column="endTime" name="endTime" not-null="false"/>
-        <property column="startDate" name="startDate" not-null="false"/>
-        <property column="endDate" name="endDate" not-null="false"/>        
+        <property column="startTime" name="startTime" type="time" not-null="false"/>
+        <property column="endTime" name="endTime" type="time" not-null="false"/>
+        <property column="startDate" name="startDate" type="date" not-null="false"/>
+        <property column="endDate" name="endDate" type="date" not-null="false"/>        
         
         <property column="createdBy" name="createdBy" not-null="false"/>
         <property column="createdDate" name="createdDate" not-null="false"/>

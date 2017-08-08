@@ -28,7 +28,7 @@
                         </row>
                         <row>
                             <signLabel value="Status Project" style="font-weight: bold"/>
-                            <listbox width="40%" mold="select" sclass="form-control">
+                            <listbox width="40%" mold="select" sclass="form-control" model="@load(vm.listProjects)" selectedItem="@bind(fx.statusProject)">
                                 <template name="model" var="items" >
                                     <listitem label="@load(items)"  value="@load(items)" />
                                 </template>

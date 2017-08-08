@@ -196,6 +196,14 @@ public class FurnitureVM {
         CommonViewModel.navigateToWithoutDetach("/brooks2/admin/furniture_management/create_furniture.zul", window, params);
     }
 
+    @Command("buttonOrderTracking")
+    @NotifyChange("furnitureDTO")
+    public void buttonOrderTracking(@BindingParam("object") FurnitureDTO obj, @ContextParam(ContextType.VIEW) Window window) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("furnitureDTO", obj);
+        CommonViewModel.navigateToWithoutDetach("/brooks2/admin/furniture_management/tracking_order.zul", window, params);
+    }
+
     @Command("buttonDetailFurniture")
     @NotifyChange("furniture")
     public void buttonDetailFurniture(@BindingParam("object") FurnitureDTO obj, @ContextParam(ContextType.VIEW) Window window) {

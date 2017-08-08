@@ -15,7 +15,7 @@
                         <listitem value="${each}" style="margin-bottom:20px;">
                             <listcell>
                                 <image
-                                    src="/images/default_image.png" />
+                                    src="/images/Madison-Avenue-Apartemen.jpg" />
                                 <label value="" />
                             </listcell>
                             <listcell style="border:1px solid #dcdcdc;">

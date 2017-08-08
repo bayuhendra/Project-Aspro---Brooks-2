@@ -29,11 +29,12 @@ INSERT INTO "public"."mst_privilege" VALUES ('23', 'SECONDARY_MANAGEMENT', 'Admi
 INSERT INTO "public"."mst_privilege" VALUES ('24', 'RENTAL_UNIT_MANAGEMENT', 'Admin Management', 'ACTIVE', 'ADMIN_MANAGEMENT', 't', 'Dashboard - Rental Unit Management', 'Dashboard - Rental Unit Management', null, '/brooks2/admin/rentalunit_management/dashboard_rentalunit.zul', '2016-01-01 00:00:00', 'SYSTEM');
 INSERT INTO "public"."mst_privilege" VALUES ('25', 'PAYMENT_HISTORY_MANAGEMENT', 'Admin Management', 'ACTIVE', 'ADMIN_MANAGEMENT', 't', 'Dashboard - Payment History Management', 'Dashboard - Payment History Management', null, '/brooks2/admin/paymenthistory_management/dashboard_paymenthistory.zul', '2016-01-01 00:00:00', 'SYSTEM');
 INSERT INTO "public"."mst_privilege" VALUES ('26', 'HANDOVER_MANAGEMENT', 'Admin Management', 'ACTIVE', 'ADMIN_MANAGEMENT', 't', 'Dashboard - HandOver Management', 'Dashboard - HandOver Management', null, '/brooks2/admin/handover_management/dashboard_handover.zul', '2016-01-01 00:00:00', 'SYSTEM');
+INSERT INTO "public"."mst_privilege" VALUES ('27', 'ESTIMATED_PRICE', 'Admin Management', 'ACTIVE', 'ADMIN_MANAGEMENT', 't', 'Dashboard - Setup Estimated Price', 'Dashboard - Setup Estimated Price', null, '/brooks2/admin/setup_danapenghargaan/dashboard_danapenghargaan.zul', '2016-01-01 00:00:00', 'SYSTEM');
 
-
-INSERT INTO "public"."mst_privilege" VALUES ('27', 'MENU_CUSTOMER', 'Admin', 'ACTIVE', 'ADMINISTRATOR', 't', 'Menu Information', null, null, null, '2016-01-01 00:00:00', 'SYSTEM');
-INSERT INTO "public"."mst_privilege" VALUES ('28', 'MENU_INFORMATION', 'Menu Information', 'ACTIVE', 'MENU_CUSTOMER', 't', 'Menu - Information', 'Menu - Information', null, '/brooks2/customer/information/dashboard_information.zul', '2016-01-01 00:00:00', 'SYSTEM');
-INSERT INTO "public"."mst_privilege" VALUES ('29', 'DASHBOARD_FURNITURE', 'Menu Information', 'ACTIVE', 'MENU_CUSTOMER', 't', 'Dashbord Furniture', 'Dashbord Furniture', null, '/brooks2/customer/furniture/dashboard_furniture.zul', '2016-01-01 00:00:00', 'SYSTEM');
+INSERT INTO "public"."mst_privilege" VALUES ('28', 'MENU_CUSTOMER', 'Admin', 'ACTIVE', 'ADMINISTRATOR', 't', 'Menu Information', null, null, null, '2016-01-01 00:00:00', 'SYSTEM');
+INSERT INTO "public"."mst_privilege" VALUES ('29', 'MENU_INFORMATION', 'Menu Information', 'ACTIVE', 'MENU_CUSTOMER', 't', 'Menu - Information', 'Menu - Information', null, '/brooks2/customer/information/dashboard_information.zul', '2016-01-01 00:00:00', 'SYSTEM');
+INSERT INTO "public"."mst_privilege" VALUES ('30', 'DASHBOARD_FURNITURE', 'Menu Information', 'ACTIVE', 'MENU_CUSTOMER', 't', 'Dashbord Furniture', 'Dashbord Furniture', null, '/brooks2/customer/furniture/dashboard_furniture.zul', '2016-01-01 00:00:00', 'SYSTEM');
+INSERT INTO "public"."mst_privilege" VALUES ('31', 'FORM_NOMINATION', 'Menu Information', 'ACTIVE', 'MENU_CUSTOMER', 't', 'Form Nomination', 'Form Nomination', null, '/brooks2/customer/secondary/customer_nominationform.zul', '2016-01-01 00:00:00', 'SYSTEM');
 -- ----------------------------
 -- Records of mst_role
 -- ----------------------------
@@ -47,7 +48,7 @@ INSERT INTO "public"."mst_role" VALUES ('3', 'CUSTOMER', 'CUSTOMER', 'CUSTOMER',
 INSERT INTO "public"."mst_role_privilege" VALUES ('1', '1', 'ALLOW', '0');
 INSERT INTO "public"."mst_role_privilege" VALUES ('2', '2', 'ALLOW', '0');
 INSERT INTO "public"."mst_role_privilege" VALUES ('2', '8', 'ALLOW', '1');
-INSERT INTO "public"."mst_role_privilege" VALUES ('3', '27', 'ALLOW', '0');
+INSERT INTO "public"."mst_role_privilege" VALUES ('3', '28', 'ALLOW', '0');
 
 -- ----------------------------
 -- Records of mst_user

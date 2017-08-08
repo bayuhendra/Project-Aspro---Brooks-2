@@ -80,7 +80,7 @@ public class HandOverVM {
             ListModelList<HandOverDTO> parameterList = new ListModelList<>(handOverService.findAll());
             String idHandOver = "";
             if (parameterList.isEmpty()) {
-                idHandOver = "Pro0001";
+                idHandOver = "SCHEDULE0001";
             } else {
                 idHandOver = getLatestObjectID(parameterList, "idHandOver");
             }
