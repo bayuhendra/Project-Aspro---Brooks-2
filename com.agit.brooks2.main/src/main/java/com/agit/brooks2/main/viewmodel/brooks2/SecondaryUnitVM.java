@@ -247,7 +247,7 @@ public class SecondaryUnitVM {
     }
 
     @Command("buttonUploadSecondaryUnit")
-    @NotifyChange({"mediaUploadSecondaryUnit", "pathLocationUploadSecondaryUnit"})
+    @NotifyChange({"mediaNameUploadSecondaryUnit", "pathLocationUploadSecondaryUnit"})
     public void buttonUploadSecondaryUnit(@ContextParam(ContextType.BIND_CONTEXT) BindContext ctx) throws IOException {
         UploadEvent upEvent = null;
         Object objUploadEvent = ctx.getTriggerEvent();
@@ -257,7 +257,6 @@ public class SecondaryUnitVM {
         }
 
         if (upEvent != null) {
-            mediaUploadSecondaryUnit = upEvent.getMedia();
             mediaUploadSecondaryUnit = upEvent.getMedia();
             Calendar now = Calendar.getInstance();
             int year = now.get(Calendar.YEAR);
@@ -272,9 +271,8 @@ public class SecondaryUnitVM {
             }
 
             Files.copy(new File(filePathUploadSecondaryUnit + mediaUploadSecondaryUnit.getName()), mediaUploadSecondaryUnit.getStreamData());
-            setMediaNameUploadSecondaryUnit(mediaNameUploadSecondaryUnit);
             setMediaNameUploadSecondaryUnit(filePathUploadSecondaryUnit + mediaUploadSecondaryUnit.getName());
-            filePathUploadSecondaryUnit = "/" + "files" + "/" + "brooks2" + "/" + year + "/" + month + "/" + day + "/" + mediaUploadSecondaryUnit.getName();
+            pathLocationUploadSecondaryUnit = "/" + "files" + "/" + "brooks2" + "/" + year + "/" + month + "/" + day + "/" + mediaUploadSecondaryUnit.getName();
         } else {
             Calendar now = Calendar.getInstance();
             int year = now.get(Calendar.YEAR);
@@ -291,6 +289,7 @@ public class SecondaryUnitVM {
     @Command("buttonSaveDataSecondaryUnit")
     @NotifyChange("secondaryUnitDTO")
     public void buttonSaveDataSecondaryUnit(@BindingParam("object") SecondaryUnitDTO obj, @ContextParam(ContextType.VIEW) Window window) {
+        
         if (pathLocationUploadSecondaryUnit == null) {
             pathLocationUploadSecondaryUnit = secondaryUnitDTO.getUrlPhotoSecondaryUnit();
         }

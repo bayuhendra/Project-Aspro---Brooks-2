@@ -258,9 +258,8 @@ public class RentalUnitVM {
             }
 
             Files.copy(new File(filePathUploadRentalUnit + mediaUploadRentalUnit.getName()), mediaUploadRentalUnit.getStreamData());
-            setMediaNameUploadRentalUnit(mediaNameUploadRentalUnit);
             setMediaNameUploadRentalUnit(filePathUploadRentalUnit + mediaUploadRentalUnit.getName());
-            filePathUploadRentalUnit = "/" + "files" + "/" + "brooks2" + "/" + year + "/" + month + "/" + day + "/" + mediaUploadRentalUnit.getName();
+            pathLocationUploadRentalUnit = "/" + "files" + "/" + "brooks2" + "/" + year + "/" + month + "/" + day + "/" + mediaUploadRentalUnit.getName();
         } else {
             Calendar now = Calendar.getInstance();
             int year = now.get(Calendar.YEAR);

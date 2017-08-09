@@ -218,17 +218,17 @@ public class FurnitureVM {
         furnitureDTO = (FurnitureDTO) obj;
         Messagebox.show("Are you sure to delete this data?", "Konfirmasi", Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION,
                 new org.zkoss.zk.ui.event.EventListener() {
-            @Override
-            public void onEvent(Event evt) throws InterruptedException {
-                if (evt.getName().equals("onOK")) {
-                    furnitureService.deleteData(furnitureDTO);
-                    showInformationMessagebox("Data Successfully Deleted");
-                    BindUtils.postGlobalCommand(null, null, "refreshDataFurniture", null);
-                } else {
-                    System.out.println("Operation Canceled !");
+                    @Override
+                    public void onEvent(Event evt) throws InterruptedException {
+                        if (evt.getName().equals("onOK")) {
+                            furnitureService.deleteData(furnitureDTO);
+                            showInformationMessagebox("Data Successfully Deleted");
+                            BindUtils.postGlobalCommand(null, null, "refreshDataFurniture", null);
+                        } else {
+                            System.out.println("Operation Canceled !");
+                        }
+                    }
                 }
-            }
-        }
         );
 
     }
@@ -267,9 +267,8 @@ public class FurnitureVM {
             }
 
             Files.copy(new File(filePathUploadFurniture + mediaUploadFurniture.getName()), mediaUploadFurniture.getStreamData());
-            setMediaNameUploadFurniture(mediaNameUploadFurniture);
             setMediaNameUploadFurniture(filePathUploadFurniture + mediaUploadFurniture.getName());
-            filePathUploadFurniture = "/" + "files" + "/" + "brooks2" + "/" + year + "/" + month + "/" + day + "/" + mediaUploadFurniture.getName();
+            pathLocationUploadFurniture = "/" + "files" + "/" + "brooks2" + "/" + year + "/" + month + "/" + day + "/" + mediaUploadFurniture.getName();
         } else {
             Calendar now = Calendar.getInstance();
             int year = now.get(Calendar.YEAR);

@@ -259,9 +259,8 @@ public class PaymentHistoryVM {
             }
 
             Files.copy(new File(filePathUploadPayment + mediaUploadPayment.getName()), mediaUploadPayment.getStreamData());
-            setMediaNameUploadPayment(mediaNameUploadPayment);
             setMediaNameUploadPayment(filePathUploadPayment + mediaUploadPayment.getName());
-            filePathUploadPayment = "/" + "files" + "/" + "brooks2" + "/" + year + "/" + month + "/" + day + "/" + mediaUploadPayment.getName();
+            pathLocationUploadPayment = "/" + "files" + "/" + "brooks2" + "/" + year + "/" + month + "/" + day + "/" + mediaUploadPayment.getName();
         } else {
             Calendar now = Calendar.getInstance();
             int year = now.get(Calendar.YEAR);
