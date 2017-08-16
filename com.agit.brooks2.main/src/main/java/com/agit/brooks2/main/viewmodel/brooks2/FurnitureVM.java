@@ -299,7 +299,7 @@ public class FurnitureVM {
     @NotifyChange("furnitureDTO")
     public void buttonPopUp(@ContextParam(ContextType.VIEW) Window window) {
         Map<String, Object> params = new HashMap<>();
-        showInformationMessagebox("Are you sure you chose this package?");
+        CommonViewModel.navigateToWithoutDetach("/brooks2/customer/furniture/detail_furniture.zul", window, params);
     }
 
     /* ================= Getter Setter ================= */

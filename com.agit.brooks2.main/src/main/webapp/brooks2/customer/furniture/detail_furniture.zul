@@ -1,0 +1,42 @@
+<?component name="signLabel" class="com.agit.brooks2.shared.zul.SignLabel" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel = "@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.FurnitureVM')"
+            form = "@id('fx') @load(vm.furnitureDTO) @save(vm.furnitureDTO, before='buttonSaveDataFurniture')">
+        <separator spacing="5px"/>
+        <groupbox width="700px" closable="false">
+            <caption sclass="isi" label="Detail Furniture" style="font-size:16pt; font-weight: bold"/>
+            <groupbox>
+                <grid style="border:0">
+                    <columns>
+                        <column width="20%"></column>
+                        <column width="80%"></column>
+                        <column></column>
+                    </columns>
+                    <rows>
+                        <row>
+                            <signLabel value="Paket Furniture" style="font-weight: bold"/>
+                            <textbox width="20%" disabled="true" value="Paket No" />
+                        </row>
+                        <row>
+                            <signLabel value="Description " style="font-weight: bold"/>
+                            <textbox rows="10" width="100%" maxlength="2000" value="1. Lemari 2. Meja 3. Kursi" readonly="true"/>
+                        </row>
+                    </rows>
+                </grid>
+                <grid style="border:0">
+                    <columns>
+                        <column align="right" width="50%"/>
+                        <column align="left" width="50%"/>
+                    </columns>                
+                    <rows>
+                        <row>
+                            <a sclass="btn btn-success" label="Kembali" width="40%" onClick="@command('buttonBackCreateFurniture')" />
+                            <a sclass="btn btn-success" label="Pilih" width="40%" onClick="" />
+                        </row>
+                    </rows>
+                </grid>
+            </groupbox>
+        </groupbox>
+    </window>
+</zk>

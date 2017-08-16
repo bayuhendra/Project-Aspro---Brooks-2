@@ -30,7 +30,7 @@
                 <div>
                     <a sclass="btn btn-success" width="100%" label="Search" onClick="@command('buttonSearchVendor')"/>
                     <separator/>
-                    <a sclass="btn btn-success" width="100%" label="Add Information" onClick="@command('buttonFormCreateVendor')"/>
+                    <a sclass="btn btn-success" width="100%" label="Add Vendor" onClick="@command('buttonFormCreateVendor')"/>
                 </div>
             </div>
             <div sclass="col-md-9 nopadding">
