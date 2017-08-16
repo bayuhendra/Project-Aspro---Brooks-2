@@ -25,4 +25,7 @@
     <bean id="hargaPenawaranRepository" class="com.agit.brooks2.masterdata.domain.infrastructure.persistance.hibernate.HargaPenawaranHibernateRepository">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean> 
+    <bean id="vendorRepository" class="com.agit.brooks2.masterdata.domain.infrastructure.persistance.hibernate.VendorHibernateRepository">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean> 
 </beans>

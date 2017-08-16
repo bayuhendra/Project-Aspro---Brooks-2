@@ -28,4 +28,10 @@
         <property name="hargaPenawaranRepository" ref="hargaPenawaranRepository"/>
         <property name="hargaPenawaranDTOAssembler" ref="hargaPenawaranDTOAssembler"/>
     </bean>
+    
+    <bean id="vendorDTOAssembler" class="com.agit.brooks2.masterdata.interfaces.web.facade.dto.assembler.VendorDTOAssembler"></bean>
+    <bean id="vendorService" class="com.agit.brooks2.masterdata.application.impl.VendorServiceImpl">
+        <property name="vendorRepository" ref="vendorRepository"/>
+        <property name="vendorDTOAssembler" ref="vendorDTOAssembler"/>
+    </bean>
 </beans>

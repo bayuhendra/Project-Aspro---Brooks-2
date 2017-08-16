@@ -1,0 +1,69 @@
+    <zk xmlns="http://www.zkoss.org/2005/zul">
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.VendorVM')"
+            form="@id('fx') @load(vm.vendorDTO) @save(vm.vendorDTO, before='buttonSaveDataProject')">
+        <groupbox height="473px" closable="false" mold="3d" style="background:#f5f5f5" sclass="col-md-12 nopadding" >
+            <caption sclass="isi" label="Dashboard Setup Vendor" />
+            <div sclass="col-md-3 nopadding">
+                
+                <div class="form-group" style="font-style:bold;">
+                    <label sclass="isi" value="Search Filter :" />
+                    <separator bar="true"/>
+                </div>
+                <div class="form-group">
+                    <label sclass="isi" value="Vendor ID" style="font-weight:bold"/>
+                    <textbox value="@bind(vm.vendorID)" sclass="form-control" width="100%"/>
+                </div>
+                <div class="form-group">
+                    <label sclass="isi" value="Vendor Name" style="font-weight:bold"/>
+                    <textbox value="@bind(vm.namaVendor)" sclass="form-control" width="100%"/>
+                </div>
+                <div class="form-group">
+                    <label sclass="isi" value="Vendor Status" style="font-weight:bold"/>
+                    <combobox model="@load(vm.statuses)" selectedItem="@bind(fx.statusVendor)" 
+                              placeholder="- Status -" autodrop="true" width="20%" readonly="true">
+                        <template name="model" var="items" >
+                            <comboitem label="@load(items)"  value="@load(items)" />
+                        </template>
+                    </combobox>
+                </div>
+                <div>
+                    <a sclass="btn btn-success" width="100%" label="Search" onClick="@command('buttonSearchVendor')"/>
+                    <separator/>
+                    <a sclass="btn btn-success" width="100%" label="Add Information" onClick="@command('buttonFormCreateVendor')"/>
+                </div>
+            </div>
+            <div sclass="col-md-9 nopadding">
+                <groupbox closable="false" sclass="col-md-12">
+                    <listbox rows="11" mold="paging" emptyMessage="${labels.common.noDataFound}" 
+                             model="@bind(vm.vendorDTOs)">
+                        <listhead>
+                            <listheader sclass="isi bold" label="Vendor ID" width="22%" align="center" sortDirection="ascending" sort="auto(vendorID)"/>
+                            <listheader sclass="isi bold" label="Vendor Name" width="50%" align="center"/>
+                            <listheader sclass="isi bold" label="Status" width="20%" align="center"/>  
+                            <listheader sclass="isi bold" label="Action" width="25%" align="center"/>                                           
+                        </listhead>
+                        <template name="model">
+                            <listitem value="${each}">
+                                <listcell>
+                                    <label width="100%" value="@bind(each.vendorID)"/>
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" value="@bind(each.namaVendor)"/>
+                                </listcell>
+                                <listcell>
+                                    <label width="100%" value="@bind(each.statusVendor)"/>
+                                </listcell>
+                                <listcell>
+                                    <a sclass="btn btn-default " image="/images/skk_edit.png" style="text-decoration:underline ;" onClick="@command('buttonDetailVendor', object=each)"></a>
+                                    <a sclass="btn btn-default " image="/images/clear_x.png"  style="text-decoration:underline ;" onClick="@command('buttonDeleteVendor', object=each)"></a>
+                                </listcell>
+                            </listitem>
+                        </template>
+                    </listbox>
+                </groupbox>
+            </div>            
+            <separator height="30px"/>
+        </groupbox>
+    </window>
+</zk>

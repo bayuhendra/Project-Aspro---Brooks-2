@@ -1,0 +1,51 @@
+<?component name="signLabel" class="com.agit.brooks2.shared.zul.SignLabel" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.agit.brooks2.main.viewmodel.brooks2.VendorVM')"
+            form="@id('fx') @load(vm.vendorDTO) @save(vm.vendorDTO, before='buttonSaveDataVendor')">
+        <separator spacing="5px"/>
+        <groupbox width="700px" closable="true">
+            <caption sclass="isi" label="Create Vendor" style="font-size:16pt; font-weight: bold"/>
+            <groupbox>
+                <grid style="border:0">
+                    <columns>
+                        <column width="20%"></column>
+                        <column width="80%"></column>
+                        <column></column>
+                    </columns>
+                    <rows>
+                        <row>
+                            <signLabel value="ID Vendor" style="font-weight: bold"/>
+                            <textbox width="20%" disabled="true" value="@bind(fx.vendorID)"/>
+                        </row>
+                        <row>
+                            <signLabel value="Name Vendor" style="font-weight: bold"/>
+                            <textbox  width="50%" rows="2" value="@bind(fx.namaVendor)"/>
+                        </row>
+                        <row>
+                            <signLabel value="Status Vendor"/>
+                            <combobox model="@load(vm.statuses)" selectedItem="@bind(fx.statusVendor)" 
+                                      placeholder="- Status -" autodrop="true" width="20%" readonly="true">
+                                <template name="model" var="items" >
+                                    <comboitem label="@load(items)"  value="@load(items)" />
+                                </template>
+                            </combobox>
+                        </row>
+                    </rows>
+                </grid>
+                <grid style="border:0">
+                    <columns>
+                        <column align="right" width="50%"/>
+                        <column align="left" width="50%"/>
+                    </columns>
+                    <rows>
+                        <row>
+                            <a sclass="btn btn-success" label="Kembali" width="40%" onClick="@command('buttonClose')"/>
+                            <a sclass="btn btn-success" label="Simpan" width="40%" onClick="@command('buttonSaveDataVendor')"/>
+                        </row>
+                    </rows>
+                </grid>
+            </groupbox>
+        </groupbox>
+    </window>
+</zk>
